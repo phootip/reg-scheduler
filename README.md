@@ -23,7 +23,7 @@ With Chulalongkorn university being _one of the top leading university in Thaila
  - should be able to save/export to somewhere such as google sheets.
  - _we are not sure how to implement this feature yet_ the details/schedules of subjects should be directly fetched from _reg chula_. this require unneccessarily hard work just to get small data (that should be publicly accessible) from the reg itself because _reg chula_ doesn't provide APIs or even a page that we can easily request and scrape from its HTML.
 
-##### data schema
+##### Data schema
 
 ```
 Section {
@@ -34,7 +34,7 @@ Section {
 	teacher,
 	color,
 	show,
-	remove,
+	remark,
 }
 
 TimeRange {
