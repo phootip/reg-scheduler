@@ -60,6 +60,7 @@ describe('TimeRange', () => {
   it('has compareTime helper function', () => {
     expect(compareTime('18:00', '19:00')).toEqual(-1);
     expect(compareTime('19:30', '19:00')).toEqual(1);
+    expect(compareTime('20:15', '20:45')).toEqual(-1);
     expect(compareTime('17:40', '19:00')).toEqual(-1);
     expect(compareTime('19:00', '17:40')).toEqual(1);
   });
@@ -71,6 +72,7 @@ describe('TimeRange', () => {
     const t4 = new TimeRange('wed', '00:00', '20:00');
     expect(t1.isConflictWith(t2)).toEqual(true);
     expect(t1.isConflictWith(t3)).toEqual(false);
+    expect(t3.isConflictWith(t1)).toEqual(false);
     expect(t2.isConflictWith(t3)).toEqual(true);
     expect(t1.isConflictWith(t4)).toEqual(false);
   });
