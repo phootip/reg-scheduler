@@ -1,5 +1,14 @@
 export default class Section {
-  pTimeRanges = [];
+  constructor(courseName) {
+    this.courseId = null;
+    this.courseName = courseName;
+    this.number = null;
+    this.timeRanges = [];
+    this.teacher = null;
+    this.color = null;
+    this.show = null;
+    this.remark = null;
+  }
   set timeRanges(timeRanges) {
     this.pTimeRanges = [];
     timeRanges.forEach(timeRange => this.addTimeRange(timeRange));

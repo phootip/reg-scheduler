@@ -2,6 +2,12 @@ import Section from '../../../src/model/Section';
 import TimeRange from '../../../src/model/TimeRange';
 
 describe('Section', () => {
+  it('has many fields', () => {
+    const section = new Section();
+    section.courseId = 2110211;
+    section.courseName = 'Comp Eng Ess';
+    expect(section.courseId).toEqual(2110211);
+  });
   it('has list of time range', () => {
     const section = new Section();
     expect(section.timeRanges).toEqual([]);
