@@ -1,4 +1,4 @@
-import TimeRange from '../../../src/model/TimeRange';
+import TimeRange, { compareTime } from '../../../src/model/TimeRange';
 
 describe('TimeRange', () => {
   it('has the start, end time', () => {
@@ -18,7 +18,7 @@ describe('TimeRange', () => {
     expect(() => new TimeRange()).toThrow();
   });
 
-  it.only('validates the start time and will throw error', () => {
+  it('validates the start time and will throw error', () => {
     const t = new TimeRange('mon', '18:00', '20:00');
 
     expect(() => {
@@ -39,8 +39,39 @@ describe('TimeRange', () => {
       t.end = 'wow';
     }).toThrow();
 
+    expect(() => {
+      t.end = '1090:001';
+    }).toThrow();
+
     expect(() => new TimeRange('mon', '18:00')).toThrow();
   });
 
-  it('it can check the ', () => {});
+  it('will error if end time was before start time', () => {
+    const t = new TimeRange('mon', '18:00', '19:00');
+    expect(() => new TimeRange('mon', '18:00', '17:00')).toThrow();
+    expect(() => {
+      t.end = '17:00';
+    }).toThrow();
+    expect(() => {
+      t.start = '20:00';
+    }).toThrow();
+  });
+
+  it('has compareTime helper function', () => {
+    expect(compareTime('18:00', '19:00')).toEqual(-1);
+    expect(compareTime('19:30', '19:00')).toEqual(1);
+    expect(compareTime('17:40', '19:00')).toEqual(-1);
+    expect(compareTime('19:00', '17:40')).toEqual(1);
+  });
+
+  it('it can check the conflict with another TimeRange', () => {
+    const t1 = new TimeRange('mon', '18:00', '20:00');
+    const t2 = new TimeRange('mon', '19:00', '20:30');
+    const t3 = new TimeRange('mon', '20:00', '21:00');
+    const t4 = new TimeRange('wed', '00:00', '20:00');
+    expect(t1.isConflictWith(t2)).toEqual(true);
+    expect(t1.isConflictWith(t3)).toEqual(false);
+    expect(t2.isConflictWith(t3)).toEqual(true);
+    expect(t1.isConflictWith(t4)).toEqual(false);
+  });
 });
