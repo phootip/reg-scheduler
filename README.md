@@ -32,13 +32,13 @@ Schedule {
 
 Course {
   courseId: Number,
-  courseName: String,
+  courseName: String!,
   color: String,
   sections: List<Section>,
 }
 
 Section {
-  number: Number,
+  number: Number!,
   teacher: String,
   show: Boolean,
   remark: String,
