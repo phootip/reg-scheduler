@@ -26,21 +26,29 @@ With Chulalongkorn university being _one of the top leading university in Thaila
 ##### Data schema
 
 ```
+Schedule {
+  courses: List<Schedule>
+}
+
+Course {
+  courseId: Number,
+  courseName: String,
+  color: String,
+  sections: List<Section>,
+}
+
 Section {
-	courseId,
-	courseName,
-	number,
-	timeRanges,
-	teacher,
-	color,
-	show,
-	remark,
+  number: Number,
+  teacher: String,
+  show: Boolean,
+  remark: String,
+  timeRanges: List<TimeRange>,
 }
 
 TimeRange {
-	day,
-	start,
-	end,
+  day: String,
+  start: String,
+  end: String,
 }
 ```
 
