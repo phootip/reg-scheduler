@@ -31,8 +31,8 @@ Schedule {
 }
 
 Course {
-  courseId: Number,
-  courseName: String!,
+  id: Number,
+  name: String!,
   color: String,
   sections: List<Section>,
 }
