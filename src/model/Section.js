@@ -1,13 +1,18 @@
 export default class Section {
-  constructor(courseName) {
-    this.courseId = null;
-    this.courseName = courseName;
-    this.number = null;
-    this.timeRanges = [];
+  constructor(sectionNumber) {
+    this.number = sectionNumber;
     this.teacher = null;
-    this.color = null;
     this.show = null;
     this.remark = null;
+    this.tdf = null;
+    this.timeRanges = [];
+  }
+  set number(number) {
+    if (typeof number !== 'number') throw new Error('number must be a number');
+    this.pNumber = number;
+  }
+  get number() {
+    return this.pNumber;
   }
   set timeRanges(timeRanges) {
     this.pTimeRanges = [];
