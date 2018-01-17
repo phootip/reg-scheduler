@@ -42,6 +42,7 @@ Section {
   teacher: String,
   show: Boolean,
   remark: String,
+  tdf: Boolean,
   timeRanges: List<TimeRange>,
 }
 
