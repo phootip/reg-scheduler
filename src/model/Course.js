@@ -1,5 +1,15 @@
+import Section from './Section';
+
 export default class Course {
   constructor(courseName) {
+    if (typeof courseName === 'object') {
+      const { id, name, color, sections } = courseName;
+      this.id = id || null;
+      this.name = name;
+      this.color = color || null;
+      this.sections = sections || [];
+      return;
+    }
     this.id = null;
     this.name = courseName;
     this.color = null;
@@ -20,9 +30,10 @@ export default class Course {
     return this.pSection;
   }
   addSection(section) {
-    const isDuplicate = this.sections.map(s => s.number).includes(section.number);
+    const cSection = Section.parseSection(section);
+    const isDuplicate = this.sections.map(s => s.number).includes(cSection.number);
     if (isDuplicate) throw new Error('section numbers must be unique');
-    this.sections.push(section);
+    this.sections.push(cSection);
   }
   removeSection(index) {
     this.sections.splice(index, 1);
