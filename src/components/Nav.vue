@@ -22,8 +22,13 @@
           <router-link to="/about" class="navbar-item">
             About
           </router-link>
-          <a href="https://github.com/phootip/reg-scheduler" target="_blank" class="navbar-item">
-            GitHub
+          <a href="https://github.com/phootip/reg-scheduler" target="_blank" class="navbar-item is-hidden-touch">
+            <b-icon
+              icon="github-circle"
+            />
+          </a>
+          <a href="https://github.com/phootip/reg-scheduler" target="_blank" class="navbar-item is-hidden-desktop">
+            GitHub repository
           </a>
         </div>
       </div>
