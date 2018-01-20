@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
+  <div class="hello has-text-centered container">
+    <img src="../assets/logo.png"/>
     <h1>{{ msg }}</h1>
+    <h1>{{ message }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -91,6 +93,9 @@ export default {
       msg: 'Welcome to Your Vue.js App',
     };
   },
+  props: [
+    'message',
+  ],
 };
 </script>
 
