@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Buefy from 'buefy';
 import 'buefy/lib/buefy.css';
 import Main from '@/components/Main';
+import About from '@/components/About';
 import HelloWorld from '@/components/HelloWorld';
 
 Vue.use(Router);
@@ -22,6 +23,11 @@ export default new Router({
           props: {
             message: 'hello',
           },
+        },
+        {
+          path: 'about',
+          name: 'About',
+          component: About,
         },
       ],
     },
