@@ -33,6 +33,10 @@ export default class Section {
   get timeRanges() {
     return this.pTimeRanges;
   }
+  static parseSection(section) {
+    if (section instanceof Section) return section;
+    return new Section(section);
+  }
   addTimeRange(timeRange) {
     const cTimeRange = TimeRange.parseTimeRange(timeRange);
     if (this.checkTimeRangesConflict(cTimeRange)) throw new Error('time ranges are conflicted');

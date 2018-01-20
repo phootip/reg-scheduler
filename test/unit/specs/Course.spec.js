@@ -56,4 +56,42 @@ describe('Course', () => {
     course2.addSection(section2);
     expect(course1.isConflictWith(course2)).toEqual(true);
   });
+  it('can parse json object', () => {
+    const section1 = {
+      number: 1,
+      timeRanges: [
+        { day: 'mon', start: '19:30', end: '20:30' },
+        new TimeRange('thu', '17:00', '19:00'),
+      ],
+    };
+    const section2 = new Section({
+      number: 2,
+      timeRanges: [
+        { day: 'mon', start: '19:30', end: '20:30' },
+        new TimeRange('thu', '17:00', '19:00'),
+      ],
+    });
+    const courseFromJson = new Course({
+      id: 2110420,
+      name: 'COMP',
+      sections: [section1, section2],
+    });
+    expect(courseFromJson.id).toEqual(2110420);
+    expect(courseFromJson.sections).toEqual([
+      new Section({
+        number: 1,
+        timeRanges: [
+          new TimeRange('mon', '19:30', '20:30'),
+          new TimeRange('thu', '17:00', '19:00'),
+        ],
+      }),
+      new Section({
+        number: 2,
+        timeRanges: [
+          new TimeRange('mon', '19:30', '20:30'),
+          new TimeRange('thu', '17:00', '19:00'),
+        ],
+      }),
+    ]);
+  });
 });

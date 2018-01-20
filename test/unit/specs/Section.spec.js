@@ -35,7 +35,7 @@ describe('Section', () => {
     expect(section.timeRanges).toContainEqual(new TimeRange('tue', '17:00', '19:00'));
     section.timeRanges = [
       { day: 'mon', start: '18:00', end: '19:00' },
-      new TimeRange('tue', '17:00', '19:00'),
+      { day: 'tue', start: '17:00', end: '19:00' },
     ];
     expect(section.timeRanges).toContainEqual(new TimeRange('mon', '18:00', '19:00'));
     expect(section.timeRanges).toContainEqual(new TimeRange('tue', '17:00', '19:00'));
@@ -64,22 +64,20 @@ describe('Section', () => {
     }).toThrow();
   });
   it('can check conflict with other section', () => {
-    const section1 = new Section(1);
-    section1.timeRanges = [
-      new TimeRange('wed', '17:00', '19:00'),
-      new TimeRange('mon', '18:00', '19:00'),
-    ];
-    const section2 = new Section(2);
-    section2.timeRanges = [
-      new TimeRange('mon', '18:30', '19:30'),
-      new TimeRange('thu', '17:00', '19:00'),
-    ];
-    const section3 = new Section(3);
-    section3.timeRanges = [
-      new TimeRange('mon', '19:30', '20:30'),
-      new TimeRange('thu', '17:00', '19:00'),
-    ];
+    const section1 = new Section({
+      number: 1,
+      timeRanges: [new TimeRange('wed', '17:00', '19:00'), new TimeRange('mon', '18:00', '19:00')],
+    });
+    const section2 = new Section({
+      number: 2,
+      timeRanges: [new TimeRange('mon', '18:30', '19:30'), new TimeRange('thu', '17:00', '19:00')],
+    });
+    const section3 = new Section({
+      number: 3,
+      timeRanges: [new TimeRange('mon', '19:30', '20:30'), new TimeRange('thu', '17:00', '19:00')],
+    });
     expect(section1.isConflictWith(section3)).toEqual(false);
+    expect(section2.isConflictWith(section3)).toEqual(true);
   });
   it('can parse json object', () => {
     const json = {
