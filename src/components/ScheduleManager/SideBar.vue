@@ -1,30 +1,36 @@
 <template>
   <div class="sidebar">
-    <section class="section">
-      <h1> classes list </h1>
-      <p>
-        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem ullam voluptatum, ab officiis minus ut. Natus, odio ratione! Voluptas, ipsam? Fugiat temporibus consequuntur, explicabo perferendis dolorem error harum! Iste, qui.</span>
-        <span>Vel, nam quae labore eligendi cumque quibusdam quos quasi, error asperiores earum natus fuga beatae nesciunt? Quod deleniti, illum provident sint, harum autem eius, accusamus molestias qui iste quis rerum!</span>
-        <span>Totam recusandae alias sunt consequatur veritatis odit repellendus ut et facere in dolore libero architecto doloribus non unde, pariatur ex enim debitis laborum? Porro ullam praesentium, omnis ex at adipisci.</span>
-        <span>Ea sit amet accusantium adipisci. Sapiente debitis eum asperiores expedita minima voluptate in, tempore inventore doloremque ipsum excepturi iste harum odio maxime distinctio. Nobis itaque, quae facere aut deleniti quod?</span>
-        <span>Quo voluptate, nemo natus deleniti eum illum ducimus at, eveniet sed alias reprehenderit nihil. Nostrum eum rerum est eius omnis dolorem laboriosam explicabo, quia voluptate tempore. Et ad velit vero.</span>
-        <span>Fuga laborum similique vel quas iure eius. Ipsa ab inventore assumenda aspernatur dolor. Nihil, debitis. Quas dolorum, officiis, quasi debitis itaque ex aut vero rem esse voluptatibus iusto deserunt sint!</span>
-        <span>Voluptatem nemo repellendus commodi sunt iusto illo debitis eos facilis ea quae tempora accusamus, nisi nostrum dolore porro, omnis optio quo repellat sapiente dicta, laudantium veritatis eligendi! Tempore, modi facere.</span>
-        <span>Facere iure doloremque illum quia? Error pariatur deserunt voluptates itaque accusamus minus eius mollitia et, a voluptatibus perspiciatis suscipit expedita soluta? Harum, est rem eos magnam eaque tempora dignissimos corporis.</span>
-        <span>Nihil commodi dolorem perferendis omnis hic labore quas optio magni, reiciendis totam autem id, possimus ipsum cumque. Ex omnis recusandae dignissimos cupiditate, debitis distinctio voluptates adipisci atque rerum dolore ea!</span>
-        <span>Ducimus, libero quidem illo itaque id unde ab aspernatur, vitae quo suscipit mollitia laborum quasi placeat eveniet? Quibusdam vitae quae obcaecati iste qui vel ducimus nulla odit, at eos ipsa.</span>
-        <span>Corrupti praesentium dolore quibusdam voluptatum aspernatur, consequuntur illo doloribus ea exercitationem eveniet iure, id eius quaerat eum, voluptate debitis. Laborum amet eos ea, sed fuga cumque. Dolore at quo non.</span>
-        <span>Tenetur atque commodi eaque, ipsum nulla tempora ipsa. Unde maiores porro optio quidem ipsa necessitatibus quibusdam, quod vel accusamus quo! Eligendi cupiditate facere odit officia nihil voluptate nulla excepturi culpa?</span>
-        <span>Molestias hic officia harum nulla quisquam quasi eligendi sapiente laboriosam enim, repellat, adipisci repudiandae architecto! Magnam alias incidunt non dolorem, quo eveniet iure debitis quas similique quaerat molestias soluta ratione.</span>
-        <span>Impedit praesentium nobis quas voluptate, quia dicta quo esse porro non doloremque, explicabo nemo accusamus minus et voluptatibus accusantium. Error ipsa labore quis vitae voluptate similique facilis iure totam in!</span>
-        <span>Blanditiis aspernatur, mollitia eligendi voluptates repellendus exercitationem tempora laudantium autem minima quae beatae tenetur vel maxime debitis vitae animi fuga error fugit quas omnis facere voluptatum natus. Assumenda, voluptatem autem?</span>
-        <span>Deleniti aut sint repudiandae ea sed maxime corrupti voluptates ex quasi quidem numquam amet nesciunt eveniet perspiciatis natus laborum, labore nulla asperiores accusamus eum quod. Sint dolores hic saepe veritatis.</span>
-        <span>Temporibus, veritatis repellendus. Neque, voluptas tempora ipsa voluptatum officiis soluta ex, in sint doloremque laborum nihil architecto quam mollitia? Nam, quibusdam. Neque, laborum officiis? Distinctio est sunt voluptatem? Voluptatem, unde!</span>
-        <span>Dolores, autem inventore, cum numquam sapiente hic odit distinctio quod, tempora sed in dicta. Aliquid pariatur obcaecati, eos quae accusamus quidem in ipsa saepe minus, molestiae rem quas consectetur reprehenderit?</span>
-        <span>Ad deleniti, omnis nihil quis delectus dolore ullam sint mollitia tenetur veritatis est illo beatae suscipit magni enim officia fugit labore error perferendis consequuntur voluptatem vero dicta quas aliquid? Magnam.</span>
-        <span>Veniam minima delectus rerum excepturi at, dolorum ratione nostrum quod porro error repellendus perferendis, autem voluptatem? Ex obcaecati commodi tenetur totam, dolorem laudantium deserunt, ratione libero sint adipisci modi rem!</span>
-      </p>
-    </section>
+    <div class="hero has-text-centered is-success">
+      <h1 class="is-uppercase is-size-7">
+        All Classes
+      </h1>
+    </div>
+    <div class="hero">
+      <div class="hero-body">
+        <p>
+          <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id commodi optio aspernatur aliquam explicabo quidem praesentium veritatis, iste voluptas vero. Officia unde ipsa eligendi et, optio aut voluptate minus aliquam?</span>
+          <span>Qui voluptate perspiciatis quae accusamus animi, sint atque quaerat illum est alias ducimus dolores blanditiis ipsum debitis tenetur? Illo laboriosam, quam qui commodi non debitis tempore sunt accusantium doloremque dolor.</span>
+          <span>Cum ducimus adipisci, doloribus dignissimos pariatur delectus saepe ipsam totam? Nemo, maiores! Tempora consectetur harum labore dignissimos, qui mollitia vero iure omnis nihil cum accusamus nisi beatae rerum voluptas ea?</span>
+          <span>Unde, atque. Ullam, quae unde libero temporibus dicta architecto delectus dolorem nesciunt vero asperiores distinctio praesentium eveniet tempora molestias ipsam est laboriosam nostrum voluptatum quisquam! Quam corporis facilis nobis porro.</span>
+          <span>Praesentium ex, sapiente debitis ipsum voluptatem omnis, beatae atque assumenda vero laborum id neque et reprehenderit. Sit voluptas, minima, maiores reprehenderit iste illo quam rerum ab molestiae aspernatur officiis doloremque?</span>
+          <span>Iusto, explicabo qui dignissimos veritatis ex a alias nemo. Ea, molestias labore impedit reprehenderit cupiditate omnis dolor possimus libero, aspernatur fuga nam dolorum ab suscipit tempora consectetur ipsum praesentium! Officia!</span>
+          <span>Voluptates aperiam ea quisquam laboriosam adipisci quibusdam. Aut provident animi vitae, beatae suscipit ipsum ea vel tempora quia voluptas quod, blanditiis adipisci veniam harum. Dolores eos ex possimus quaerat reiciendis.</span>
+          <span>Eveniet rerum omnis natus laboriosam cum saepe quibusdam voluptatum, delectus perferendis atque tempora dolorem iste eligendi reiciendis optio maxime aperiam recusandae cumque magni soluta. Quo debitis sed perspiciatis laudantium dolorum?</span>
+          <span>Qui nesciunt recusandae eveniet rerum optio praesentium voluptas vero deleniti minima nihil impedit dolorem quaerat quidem voluptatum, aspernatur, corporis, neque exercitationem natus earum distinctio voluptatem. Eveniet explicabo illo quidem fugit?</span>
+          <span>Maxime, incidunt. Ex perspiciatis laborum quisquam aperiam, maiores adipisci sapiente similique iste excepturi explicabo optio voluptates nemo, vitae, tempora deleniti iure ab ipsam. Expedita cumque aliquam repellendus dolorum iste beatae.</span>
+          <span>Ipsa, ex. At, laboriosam! Laborum quas laudantium ab velit fugiat illum, earum maiores illo ipsam nemo necessitatibus dolor quisquam! Omnis distinctio nam labore eius molestias quis animi esse dignissimos beatae.</span>
+          <span>Quasi rem itaque esse nisi sint necessitatibus, error modi ex odio quisquam. Accusamus vitae eius eveniet aliquam aut dolor officia eos illo et in molestiae similique blanditiis unde, ratione hic?</span>
+          <span>Deleniti numquam quod quis harum? Cum eligendi ipsum ut similique soluta fugiat eum quae optio ipsa! Totam, a. Quaerat, commodi. Temporibus nisi voluptates iste impedit neque aliquid, mollitia dolores! Deserunt!</span>
+          <span>Omnis consequuntur esse impedit commodi repellendus adipisci hic numquam exercitationem tempora voluptatum quas nesciunt fuga totam nisi consequatur, facilis vel doloremque explicabo velit? Excepturi optio ducimus maxime eveniet, quam corrupti?</span>
+          <span>Facere dolorum fugit non, animi placeat officia eum mollitia commodi eveniet ratione recusandae, rem quo? Nesciunt, facere officiis repellat perferendis quo maiores exercitationem eveniet, aperiam culpa dolor unde corporis cum.</span>
+          <span>Iure corrupti ex ipsa eius officia sit voluptate labore. Et tempora repellendus debitis ab aspernatur provident pariatur a dignissimos iusto ipsam repudiandae, eos maiores quia tempore voluptatibus dicta dolore quas.</span>
+          <span>Ad atque aliquam quidem pariatur facilis harum ipsam laborum dolore a earum neque libero itaque non adipisci, suscipit corrupti id laudantium tempore placeat, est veritatis voluptatem vel cum quaerat. Vitae.</span>
+          <span>Fuga, tempora modi deleniti velit numquam nemo dolores? Blanditiis, nobis vel. Sequi consequatur est ullam non tempore perferendis consectetur vel sed quam. Porro quam, vitae deserunt quas necessitatibus consequatur exercitationem.</span>
+          <span>Vel consectetur nulla, recusandae magnam nihil totam accusantium quod tenetur labore, rem omnis in inventore cum assumenda neque optio numquam quisquam! Expedita delectus vitae a, commodi non ratione saepe alias!</span>
+          <span>Facilis consequuntur aut amet ut explicabo quam fugiat quo ducimus nemo possimus? Accusamus aspernatur fugiat iste reprehenderit velit facilis voluptate, veniam maxime. Sunt quos tempora fuga consectetur aliquam tempore sit.</span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -51,6 +57,7 @@ export default {
   }
   .sidebar::-webkit-scrollbar-track {
     background: rgba(100, 100, 100, 0.05);
+    border-radius: 20px;
   }
   .sidebar::-webkit-scrollbar-thumb {
     background: rgba(200, 200, 200, 0.8);

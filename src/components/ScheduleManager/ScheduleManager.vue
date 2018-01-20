@@ -1,11 +1,11 @@
 <template>
   <div class="hero fullscreen">
-    <div class="columns">
+    <div class="columns is-gapless">
       <div class="column is-one-third sidebar">
-        <schedule-manager-side-bar/>
+        <SideBar/>
       </div>
       <div class="column">
-        <h1>Main View</h1>
+        <MainView/>
       </div>
     </div>
   </div>
@@ -13,10 +13,13 @@
 
 <script>
 import ScheduleManagerSideBar from './SideBar'
+import ScheduleManagerMainView from './MainView'
+
 export default {
   name: 'ScheduleManager',
   components: {
-    ScheduleManagerSideBar
+    'SideBar': ScheduleManagerSideBar,
+    'MainView': ScheduleManagerMainView,
   },
 }
 </script>
@@ -30,7 +33,6 @@ export default {
   }
   .sidebar {
     padding-bottom: 0;
-    padding-top: 0;
     height: 92vh;
     position: relative; 
   }
