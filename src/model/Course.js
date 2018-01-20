@@ -27,4 +27,13 @@ export default class Course {
   removeSection(index) {
     this.sections.splice(index, 1);
   }
+  isConflictWith(another) {
+    let isConflict = false;
+    this.sections.forEach((section1) => {
+      another.sections.forEach((section2) => {
+        if (section1.isConflictWith(section2)) isConflict = true;
+      });
+    });
+    return isConflict;
+  }
 }

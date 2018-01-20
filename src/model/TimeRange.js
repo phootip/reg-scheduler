@@ -1,4 +1,7 @@
 function validateTime(time) {
+  if (time === 'tdf') {
+    return;
+  }
   if (!/\d\d:\d\d/.exec(time)) throw new Error('start time must have a value');
   const [hour, min] = time.split(':');
 
@@ -12,6 +15,7 @@ function validateTime(time) {
   }
 }
 function tokenizeTime(time) {
+  if (time === 'tdf') return 'tdf';
   const [hour, min] = time.split(':');
   return {
     hour: parseInt(hour, 10),
@@ -32,9 +36,16 @@ export function compareTime(time1, time2) {
 }
 export default class TimeRange {
   constructor(day, start, end) {
-    this.day = day;
-    this.start = start;
-    this.end = end;
+    if (typeof day === 'object') {
+      const { day: tDay, start: tStart, end: tEnd } = day;
+      this.day = tDay;
+      this.start = tStart;
+      this.end = tEnd;
+    } else {
+      this.day = day;
+      this.start = start;
+      this.end = end;
+    }
   }
   set day(day) {
     if (!day) throw new Error('day name must have a value');
@@ -77,12 +88,14 @@ export default class TimeRange {
 
   validateStartEnd() {
     const { start, end } = this;
+    if (this.checkTdf()) return;
     if (start && end) {
       if (compareTime(start, end) > 0) throw new Error('start should be before end');
     }
   }
 
   isConflictWith(another) {
+    if (this.checkTdf() || another.checkTdf()) return false;
     if (this.day !== another.day) return false;
     if (compareTime(this.end, another.start) <= 0) {
       return false;
@@ -91,5 +104,10 @@ export default class TimeRange {
       return false;
     }
     return true;
+  }
+
+  checkTdf() {
+    if (this.day === 'tdf' || this.start === 'tdf' || this.end === 'tdf') return true;
+    return false;
   }
 }

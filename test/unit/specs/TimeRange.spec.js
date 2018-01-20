@@ -1,4 +1,4 @@
-import TimeRange, { compareTime } from '@/model/TimeRange';
+import TimeRange, { compareTime } from '../../../src/model/TimeRange';
 
 describe('TimeRange', () => {
   it('has the start, end time', () => {
@@ -6,6 +6,13 @@ describe('TimeRange', () => {
     expect(t.day).toEqual('mon');
     expect(t.start).toEqual('18:00');
     expect(t.end).toEqual('20:00');
+  });
+
+  it('day, start, end can be tdf', () => {
+    const t = new TimeRange('tdf', 'tdf', 'tdf');
+    expect(t.day).toEqual('tdf');
+    expect(t.start).toEqual('tdf');
+    expect(t.end).toEqual('tdf');
   });
 
   it('validates the day and will throw error', () => {
@@ -75,5 +82,29 @@ describe('TimeRange', () => {
     expect(t3.isConflictWith(t1)).toEqual(false);
     expect(t2.isConflictWith(t3)).toEqual(true);
     expect(t1.isConflictWith(t4)).toEqual(false);
+  });
+
+  it('tdf will never conflict', () => {
+    const t1 = new TimeRange('mon', '18:00', '20:00');
+    const tdf1 = new TimeRange('tdf', '18:00', '19:00');
+    const tdf2 = new TimeRange('mon', 'tdf', 'tdf');
+    const tdf3 = new TimeRange('mon', '18:00', 'tdf');
+    const tdf4 = new TimeRange('mon', 'tdf', '19:00');
+    expect(t1.isConflictWith(tdf1)).toEqual(false);
+    expect(t1.isConflictWith(tdf2)).toEqual(false);
+    expect(t1.isConflictWith(tdf3)).toEqual(false);
+    expect(t1.isConflictWith(tdf4)).toEqual(false);
+  });
+
+  it('can parse the json object', () => {
+    const json = {
+      day: 'mon',
+      start: '18:00',
+      end: '20:00',
+    };
+    const timeRange = new TimeRange(json);
+    expect(timeRange.day).toEqual('mon');
+    expect(timeRange.start).toEqual('18:00');
+    expect(timeRange.end).toEqual('20:00');
   });
 });
