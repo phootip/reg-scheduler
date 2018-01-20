@@ -2,9 +2,9 @@
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item">
+        <router-link to="/" class="navbar-item">
           reg-scheduler
-        </a>
+        </router-link>
         <div class="navbar-burger" :class="{ 'is-active': isMenuActive }" @click="toggleMenu">
           <span></span>
           <span></span>
@@ -19,10 +19,10 @@
           Link2
         </a>
         <div class="navbar-end">
-          <a class="navbar-item">
+          <router-link to="/about" class="navbar-item">
             About
-          </a>
-          <a class="navbar-item">
+          </router-link>
+          <a href="https://github.com/phootip/reg-scheduler" target="_blank" class="navbar-item">
             GitHub
           </a>
         </div>
