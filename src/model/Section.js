@@ -1,5 +1,17 @@
+import TimeRange from './TimeRange';
+
 export default class Section {
   constructor(sectionNumber) {
+    if (typeof sectionNumber === 'object') {
+      const { number, timeRanges, teacher, show, remark, tdf } = sectionNumber;
+      this.number = number;
+      this.teacher = teacher || null;
+      this.show = show || null;
+      this.remark = remark || null;
+      this.tdf = tdf || null;
+      this.timeRanges = timeRanges || [];
+      return;
+    }
     this.number = sectionNumber;
     this.teacher = null;
     this.show = null;
@@ -22,8 +34,9 @@ export default class Section {
     return this.pTimeRanges;
   }
   addTimeRange(timeRange) {
-    if (this.checkTimeRangesConflict(timeRange)) throw new Error('time ranges are conflicted');
-    this.pTimeRanges.push(timeRange);
+    const cTimeRange = TimeRange.parseTimeRange(timeRange);
+    if (this.checkTimeRangesConflict(cTimeRange)) throw new Error('time ranges are conflicted');
+    this.pTimeRanges.push(cTimeRange);
   }
   removeTimeRange(index) {
     this.pTimeRanges.splice(index, 1);

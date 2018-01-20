@@ -1,10 +1,12 @@
-import Section from '@/model/Section';
-import TimeRange from '@/model/TimeRange';
+import Section from '../../../src/model/Section';
+import TimeRange from '../../../src/model/TimeRange';
 
 describe('Section', () => {
   let section;
+  let sectionFromJson;
   beforeEach(() => {
     section = new Section(0);
+    sectionFromJson = new Section({ number: 0 });
   });
   it('must have a (section)number', () => {
     expect(() => new Section()).toThrow();
@@ -22,6 +24,7 @@ describe('Section', () => {
   });
   it('has list of time range', () => {
     expect(section.timeRanges).toEqual([]);
+    expect(sectionFromJson.timeRanges).toEqual([]);
   });
   it('can set time ranges', () => {
     section.timeRanges = [
@@ -31,7 +34,7 @@ describe('Section', () => {
     expect(section.timeRanges).toContainEqual(new TimeRange('mon', '18:00', '19:00'));
     expect(section.timeRanges).toContainEqual(new TimeRange('tue', '17:00', '19:00'));
     section.timeRanges = [
-      new TimeRange('mon', '18:00', '19:00'),
+      { day: 'mon', start: '18:00', end: '19:00' },
       new TimeRange('tue', '17:00', '19:00'),
     ];
     expect(section.timeRanges).toContainEqual(new TimeRange('mon', '18:00', '19:00'));
@@ -77,5 +80,22 @@ describe('Section', () => {
       new TimeRange('thu', '17:00', '19:00'),
     ];
     expect(section1.isConflictWith(section3)).toEqual(false);
+  });
+  it('can parse json object', () => {
+    const json = {
+      number: 1,
+      timeRanges: [
+        { day: 'mon', start: '18:00', end: '19:00' },
+        { day: 'tue', start: '18:00', end: '19:00' },
+        new TimeRange('wed', '18:00', '19:00'),
+      ],
+    };
+    const sections = new Section(json);
+    const { number, timeRanges } = sections;
+    expect(number).toEqual(1);
+    expect(timeRanges).toContainEqual(new TimeRange('mon', '18:00', '19:00'));
+
+    expect(() => new Section({})).toThrow();
+    expect(() => new Section({ number: 1 }));
   });
 });

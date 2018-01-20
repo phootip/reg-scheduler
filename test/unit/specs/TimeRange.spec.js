@@ -64,12 +64,12 @@ describe('TimeRange', () => {
     }).toThrow();
   });
 
-  it('has compareTime helper function', () => {
-    expect(compareTime('18:00', '19:00')).toEqual(-1);
-    expect(compareTime('19:30', '19:00')).toEqual(1);
-    expect(compareTime('20:15', '20:45')).toEqual(-1);
-    expect(compareTime('17:40', '19:00')).toEqual(-1);
-    expect(compareTime('19:00', '17:40')).toEqual(1);
+  it('has compareTime static function', () => {
+    expect(TimeRange.compareTime('18:00', '19:00')).toEqual(-1);
+    expect(TimeRange.compareTime('19:30', '19:00')).toEqual(1);
+    expect(TimeRange.compareTime('20:15', '20:45')).toEqual(-1);
+    expect(TimeRange.compareTime('17:40', '19:00')).toEqual(-1);
+    expect(TimeRange.compareTime('19:00', '17:40')).toEqual(1);
   });
 
   it('it can check the conflict with another TimeRange', () => {
