@@ -5,21 +5,27 @@
         <a class="navbar-item">
           reg-scheduler
         </a>
+        <div class="navbar-burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <a class="navbar-item">
-        Link1
-      </a>
-      <a class="navbar-item">
-        Link2
-      </a>
-
-      <div class="navbar-end">
+      <div class="navbar-menu">
         <a class="navbar-item">
-          About
+          Link1
         </a>
         <a class="navbar-item">
-          GitHub repo?
+          Link2
         </a>
+        <div class="navbar-end">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            GitHub repo?
+          </a>
+        </div>
       </div>
     </div>
   </nav>
