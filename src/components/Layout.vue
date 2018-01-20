@@ -3,7 +3,7 @@
     <div class="hero-head" v-show="$slots.head">
       <slot name="head"></slot>
     </div>
-    <div class="hero-body">
+    <div class="hero-body is-paddingless">
       <slot></slot>
     </div>
     <div class="hero-foot" v-show="$slots.foot">

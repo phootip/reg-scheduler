@@ -5,6 +5,7 @@ import 'buefy/lib/buefy.css';
 import Main from '@/components/Main';
 import About from '@/components/About';
 import HelloWorld from '@/components/HelloWorld';
+import ScheduleManager from '@/components/ScheduleManager/ScheduleManager';
 
 Vue.use(Router);
 Vue.use(Buefy);
@@ -18,11 +19,8 @@ export default new Router({
       children: [
         {
           path: '',
-          name: 'HelloWorld',
-          component: HelloWorld,
-          props: {
-            message: 'hello',
-          },
+          name: 'ScheduleManager',
+          component: ScheduleManager,
         },
         {
           path: 'about',

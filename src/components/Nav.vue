@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item">
+        <router-link to="/" class="navbar-item is-size-4">
           reg-scheduler
         </router-link>
         <div class="navbar-burger" :class="{ 'is-active': isMenuActive }" @click="toggleMenu">
@@ -22,7 +22,8 @@
           <router-link to="/about" class="navbar-item">
             About
           </router-link>
-          <a href="https://github.com/phootip/reg-scheduler" target="_blank" class="navbar-item is-hidden-touch">
+          <a href="https://github.com/phootip/reg-scheduler" target="_blank" class="navbar-item is-hidden-touch"
+          aria-label="GitHub Repository" title="GitHub Repository">
             <b-icon
               icon="github-circle"
             />
