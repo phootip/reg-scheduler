@@ -6,6 +6,7 @@ import Main from '@/components/Main';
 import About from '@/components/About';
 import HelloWorld from '@/components/HelloWorld';
 import ScheduleManager from '@/components/ScheduleManager/ScheduleManager';
+import ScheduleTable from '@/components/ScheduleTable';
 
 Vue.use(Router);
 Vue.use(Buefy);
