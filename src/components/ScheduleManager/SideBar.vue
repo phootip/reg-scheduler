@@ -8,7 +8,7 @@
     <div class="hero">
       <div class="hero-body">
         <p>
-          <!-- eslint-disable max-len-->
+          <!-- eslint-disable max-len -->
           <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id commodi optio aspernatur aliquam explicabo quidem praesentium veritatis, iste voluptas vero. Officia unde ipsa eligendi et, optio aut voluptate minus aliquam?</span>
           <span>Qui voluptate perspiciatis quae accusamus animi, sint atque quaerat illum est alias ducimus dolores blanditiis ipsum debitis tenetur? Illo laboriosam, quam qui commodi non debitis tempore sunt accusantium doloremque dolor.</span>
           <span>Cum ducimus adipisci, doloribus dignissimos pariatur delectus saepe ipsam totam? Nemo, maiores! Tempora consectetur harum labore dignissimos, qui mollitia vero iure omnis nihil cum accusamus nisi beatae rerum voluptas ea?</span>
