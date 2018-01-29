@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" id="scheduleManagerSideBar">
     <div class="hero has-text-centered is-success">
       <h1 class="is-uppercase is-size-7">
         All Classes
