@@ -6,7 +6,7 @@ import TimeRange from '@/model/TimeRange';
 describe('ScheduleTable.vue', () => {
   const wrapper = mount(ScheduleTable);
   it('should render an empty table with no props', () => {
-    expect(wrapper.contains('.item')).toBe(false);
+    expect(wrapper.contains('.schedule-item')).toBe(false);
   });
   it('should render items correctly', () => {
     const items = {
@@ -27,6 +27,6 @@ describe('ScheduleTable.vue', () => {
       ],
     };
     wrapper.setProps({ items });
-    expect(wrapper.contains('.item')).toBe(true);
+    expect(wrapper.contains('.schedule-item')).toBe(true);
   });
 });
