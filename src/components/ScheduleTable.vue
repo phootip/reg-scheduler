@@ -1,23 +1,23 @@
 <template>
-  <div class="container row">
-    <div class="column offset-top">
-      <div v-for="mainHeader in mainHeaders" :key="mainHeader.name" class="cell">
+  <div class="schedule-container schedule-row">
+    <div class="schedule-column offset-top">
+      <div v-for="mainHeader in mainHeaders" :key="mainHeader.name" class="schedule-cell">
         {{ mainHeader.name }}
       </div>
     </div>
-    <div class="column grow">
-      <div class="row">
-        <div v-for="crossHeader in crossHeaders" :key="crossHeader" class="column grow">
-          <div class="cell">
+    <div class="schedule-column grow">
+      <div class="schedule-row">
+        <div v-for="crossHeader in crossHeaders" :key="crossHeader" class="schedule-column grow">
+          <div class="schedule-cell">
             {{ crossHeader.name }}
           </div>
         </div>
       </div>
-      <div v-for="mainHeader in mainHeaders" :key="mainHeader.key" class="cell">
+      <div v-for="mainHeader in mainHeaders" :key="mainHeader.key" class="schedule-cell">
         <div
           v-for="item in items[mainHeader.key]"
           :key="item.id"
-          class="item"
+          class="schedule-item"
           :style="{ backgroundColor: item.color, left: 'auto', width: '10%' }"
         >
           {{ item.id }}
@@ -66,23 +66,23 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.schedule-container {
   width: 100%;
 }
-.row {
+.schedule-row {
   display: flex;
   justify-content: stretch;
 }
-.column {
+.schedule-column {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
 }
 .offset-top {
-  padding-top: 3rem;
+  padding-top: 2.5rem;
 }
-.cell {
-  height: 2rem;
+.schedule-cell {
+  height: 2.5rem;
   padding: 0.5rem;
   text-align: center;
 }
@@ -90,7 +90,7 @@ export default {
   flex-basis: 0;
   flex-grow: 1;
 }
-.item {
+.schedule-item {
   position: absolute;
   padding: 0;
 }
