@@ -43,13 +43,13 @@ export default {
   data() {
     return {
       isMenuActive: false,
-    }
+    };
   },
   methods: {
     toggleMenu() {
       this.isMenuActive = !this.isMenuActive;
-    }
-  }
+    },
+  },
 };
 </script>
 

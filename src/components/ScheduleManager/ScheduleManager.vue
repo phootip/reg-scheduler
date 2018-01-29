@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import ScheduleManagerSideBar from './SideBar'
-import ScheduleManagerMainView from './MainView'
+import ScheduleManagerSideBar from './SideBar';
+import ScheduleManagerMainView from './MainView';
 
 export default {
   name: 'ScheduleManager',
   components: {
-    'SideBar': ScheduleManagerSideBar,
-    'MainView': ScheduleManagerMainView,
+    SideBar: ScheduleManagerSideBar,
+    MainView: ScheduleManagerMainView,
   },
-}
+};
 </script>
 
 <style scoped>
@@ -34,6 +34,6 @@ export default {
   .sidebar {
     padding-bottom: 0;
     height: 92vh;
-    position: relative; 
+    position: relative;
   }
 </style>

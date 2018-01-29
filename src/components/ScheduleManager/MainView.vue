@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'ScheduleManagerMainView'
-}
+  name: 'ScheduleManagerMainView',
+};
 </script>
