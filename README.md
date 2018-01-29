@@ -34,6 +34,8 @@ Course {
   id: Number,
   name: String!,
   color: String,
+  * finalExam: ExamTimeRange,
+  * midExam: ExamTimeRange,
   sections: List<Section>,
 }
 
