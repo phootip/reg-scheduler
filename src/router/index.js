@@ -5,6 +5,7 @@ import 'buefy/lib/buefy.css';
 import Main from '@/components/Main';
 import About from '@/components/About';
 import ScheduleManager from '@/components/ScheduleManager/ScheduleManager';
+import ScheduleTable from '@/components/ScheduleTable';
 
 Vue.use(Router);
 Vue.use(Buefy);
