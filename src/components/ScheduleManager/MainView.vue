@@ -1,9 +1,9 @@
 <template>
-  <router-view/>
+  <p>Main View</p>
 </template>
 
 <script>
 export default {
-  name: 'App',
-};
+  name: 'ScheduleManagerMainView'
+}
 </script>

@@ -31,17 +31,18 @@ Schedule {
 }
 
 Course {
-  courseId: Number,
-  courseName: String,
+  id: Number,
+  name: String!,
   color: String,
   sections: List<Section>,
 }
 
 Section {
-  number: Number,
+  number: Number!,
   teacher: String,
   show: Boolean,
   remark: String,
+  tdf: Boolean,
   timeRanges: List<TimeRange>,
 }
 
