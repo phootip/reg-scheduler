@@ -21,6 +21,7 @@ export default class ExamTimeRange extends TimeRange {
     return this.pDate;
   }
   isConflictWith(other) {
+    if (this.date === 'tdf') return false;
     return super.isConflictWith(other) && this.date === other.date;
   }
 }

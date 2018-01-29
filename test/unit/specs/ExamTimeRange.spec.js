@@ -48,7 +48,15 @@ describe('ExamTimeRange', () => {
       end: '11:30',
       start: '08:30',
     });
+    const tdf = new ExamTimeRange({
+      date: 'tdf',
+      day: 'TUE',
+      end: '11:30',
+      start: '08:30',
+    });
     expect(t1.isConflictWith(t2)).toEqual(true);
     expect(t1.isConflictWith(t3)).toEqual(false);
+    expect(tdf.isConflictWith(tdf)).toEqual(false);
+    expect(t1.isConflictWith(tdf)).toEqual(false);
   });
 });
