@@ -14,15 +14,13 @@
         </div>
       </div>
       <div v-for="mainHeader in mainHeaders" :key="mainHeader.key" class="cell">
-        <div class="cell">
-          <div
-            v-for="item in items[mainHeader.key]"
-            :key="item.id"
-            class="item"
-            :style="{ backgroundColor: item.color, left: 'auto' }"
-          >
-            {{ item.id }}
-          </div>
+        <div
+          v-for="item in items[mainHeader.key]"
+          :key="item.id"
+          class="item"
+          :style="{ backgroundColor: item.color, left: 'auto', width: '10%' }"
+        >
+          {{ item.id }}
         </div>
       </div>
     </div>
@@ -63,7 +61,9 @@ export default {
     crossHeaders: {
       type: Array,
       default() {
-        return [];
+        return [
+          '',
+        ];
       },
     },
     items: {
