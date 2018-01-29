@@ -9,3 +9,9 @@ export default {
   name: 'App',
 };
 </script>
+
+<style>
+  #app {
+    overflow: hidden;
+  }
+</style>

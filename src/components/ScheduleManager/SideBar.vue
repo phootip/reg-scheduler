@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" id="scheduleManagerSideBar">
     <div class="hero has-text-centered is-success">
       <h1 class="is-uppercase is-size-7">
         All Classes
@@ -43,26 +43,26 @@ export default {
 </script>
 
 <style scoped>
-  .sidebar {
-    overflow-y: hidden;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    position: absolute;
-  }
+.sidebar {
+  overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: absolute;
+}
 
-  .sidebar:hover {
-    overflow-y: overlay;
-  }
-  .sidebar::-webkit-scrollbar {
-    background: none;
-  }
-  .sidebar::-webkit-scrollbar-track {
-    background: rgba(100, 100, 100, 0.05);
-    border-radius: 20px;
-  }
-  .sidebar::-webkit-scrollbar-thumb {
-    background: rgba(200, 200, 200, 0.8);
-    border-radius: 20px;
-  }
+.sidebar:hover {
+  overflow-y: overlay;
+}
+.sidebar::-webkit-scrollbar {
+  background: none;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(100, 100, 100, 0.05);
+  border-radius: 20px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(200, 200, 200, 0.8);
+  border-radius: 20px;
+}
 </style>
