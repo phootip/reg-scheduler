@@ -25,7 +25,8 @@
 </template>
 
 <script>
-import ScheduleManagerCourseListItem from './CourseListItem'
+import ScheduleManagerCourseListItem from './CourseListItem';
+
 export default {
   name: 'ScheduleManagerSideBar',
   components: {
@@ -43,16 +44,16 @@ export default {
               teacher: 'ASS',
               timeRanges: [
                 { day: 'mon', start: '18:00', end: '19:00' },
-              ]
+              ],
             },
             {
               number: 2,
               teacher: 'DAM',
               timeRanges: [
                 { day: 'mon', start: '18:00', end: '19:00' },
-                { day: 'tue', start: '18:00', end: '19:00' }
-              ]
-            }
+                { day: 'tue', start: '18:00', end: '19:00' },
+              ],
+            },
           ],
         },
         {
@@ -64,19 +65,19 @@ export default {
               teacher: 'AST',
               timeRanges: [
                 { day: 'mon', start: '18:00', end: '19:00' },
-                { day: 'tue', start: '18:00', end: '19:00' }
-              ]
+                { day: 'tue', start: '18:00', end: '19:00' },
+              ],
             },
             {
               number: 2,
               teacher: 'DAM',
               timeRanges: [
                 { day: 'mon', start: '18:00', end: '19:00' },
-              ]
-            }
+              ],
+            },
           ],
         },
-      ]
+      ],
     };
   },
 };

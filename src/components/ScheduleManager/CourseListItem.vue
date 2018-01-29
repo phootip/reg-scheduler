@@ -23,7 +23,8 @@
             <td>
               <table class="table is-narrow" style="margin: 0;">
                 <tbody style="margin: 0;">
-                  <tr style="margin-top: 0;" v-for="(timeRange, index) in selectedSection.timeRanges" :key="index">
+                  <tr v-for="(timeRange, index) in selectedSection.timeRanges" :key="index"
+                  style="margin-top: 0;">
                     <td class="is-uppercase" style="padding-top: 0;">{{timeRange.day}}</td>
                     <td style="padding-top: 0;">{{timeRange.start}}</td>
                     -
@@ -66,8 +67,10 @@ export default {
   },
   computed: {
     selectedSection() {
-      return this.course.sections.filter(section => section.number === this.selectedSectionNumber)[0];
+      return this.course.sections.filter(
+        section => section.number === this.selectedSectionNumber,
+      )[0];
     },
-  }
-}
+  },
+};
 </script>
