@@ -84,16 +84,24 @@ export default {
 </script>
 
 <style scoped>
-.sidebar {
-  overflow-y: hidden;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  position: absolute;
+@media screen and (min-width: 1024px) {
+  .sidebar {
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+  }
+
+  .sidebar:hover {
+    overflow-y: overlay;
+  }
 }
 
-.sidebar:hover {
-  overflow-y: overlay;
+@media screen and (max-width: 1024px){
+  .sidebar {
+    position: relative;
+  }
 }
 .sidebar::-webkit-scrollbar {
   background: none;

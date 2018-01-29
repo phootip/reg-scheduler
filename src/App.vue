@@ -11,7 +11,9 @@ export default {
 </script>
 
 <style>
-  #app {
-    overflow: hidden;
+  @media screen and (min-width: 1024px){
+    #app {
+      overflow: hidden;
+    }
   }
 </style>

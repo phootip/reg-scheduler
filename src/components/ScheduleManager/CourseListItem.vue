@@ -2,15 +2,15 @@
   <div class="card">
     <div class="card-content">
       <div class="media-content">
-        <span class="title is-size-4">
-          {{ course.name || 'No Name'}}
-        </span>
         <span class="subtitle is-size-6">
           {{ course.code || ''}}
         </span>
+        <span class="title is-size-4-desktop is-size-6-touch is-uppercase">
+          {{ course.name || 'No Name'}}
+        </span>
       </div>
       <br/>
-      <table class="table is-narrow is-marginless">
+      <table class="table is-narrow is-marginless is-hidden-touch">
         <thead>
           <th>#</th>
           <th>Teacher</th>
@@ -19,8 +19,8 @@
         <tbody>
           <tr>
             <td>{{ selectedSection.number || ''}}</td>
-            <td>{{ selectedSection.teacher }}</td>
-            <td>
+            <td class="has-text-centered">{{ selectedSection.teacher }}</td>
+            <td v-if="selectedSectionNumber">
               <table class="table is-narrow" style="margin: 0;">
                 <tbody style="margin: 0;">
                   <tr v-for="(timeRange, index) in selectedSection.timeRanges" :key="index"
@@ -39,7 +39,7 @@
     </div>
     <div class="card-footer">
       <a href="#" class="card-footer-item">Change</a>
-      <a href="#" class="card-footer-item">Unselect</a>
+      <a href="#" class="card-footer-item">Hide</a>
       <a href="#" class="card-footer-item">Delete</a>
     </div>
   </div>

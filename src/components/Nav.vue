@@ -13,10 +13,10 @@
       </div>
       <div class="navbar-menu" :class="{ 'is-active': isMenuActive }">
         <a class="navbar-item">
-          Link1
+          Schedule
         </a>
         <a class="navbar-item">
-          Link2
+          Summary
         </a>
         <div class="navbar-end">
           <router-link to="/about" class="navbar-item">

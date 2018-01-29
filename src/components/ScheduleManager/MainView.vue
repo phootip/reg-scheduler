@@ -50,14 +50,16 @@ export default {
 </script>
 
 <style scoped>
-  #scheduleManagerMainView {
-    overflow-y: hidden;
-    height: 90vh;
+  @media screen and (min-width: 1024px) {
+    #scheduleManagerMainView {
+      overflow-y: hidden;
+      height: 90vh;
+    }
+    #scheduleManagerMainView:hover {
+      overflow-y: overlay;
+    }
   }
 
-  #scheduleManagerMainView:hover {
-    overflow-y: overlay;
-  }
   #scheduleManagerMainView::-webkit-scrollbar {
     background: none;
   }

@@ -31,9 +31,11 @@ export default {
     max-height: 90vh;
     top: 0;
   }
-  .sidebar {
-    padding-bottom: 0;
-    height: 92vh;
-    position: relative;
+  @media screen and (min-width: 1024px){
+    .sidebar {
+      padding-bottom: 0;
+      height: 92vh;
+      position: relative;
+    }
   }
 </style>
