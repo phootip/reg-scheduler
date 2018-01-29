@@ -16,24 +16,30 @@
       </div>
     </div>
     <div class="hero">
-        <a href="#" class="button is-success">
+        <a @click="isAddCourseModalActive = true" class="button is-success">
           Add another Course
         </a>
     </div>
+    <b-modal :active.sync="isAddCourseModalActive" has-modal-card>
+      <AddCourseModal/>
+    </b-modal>
     <br/>
   </div>
 </template>
 
 <script>
 import ScheduleManagerCourseListItem from './CourseListItem';
+import ScheduleManagerAddCourseModal from './AddCourseModal';
 
 export default {
   name: 'ScheduleManagerSideBar',
   components: {
     CourseListItem: ScheduleManagerCourseListItem,
+    AddCourseModal: ScheduleManagerAddCourseModal,
   },
   data() {
     return {
+      isAddCourseModalActive: false,
       courses: [
         {
           name: 'Prog Lang',
