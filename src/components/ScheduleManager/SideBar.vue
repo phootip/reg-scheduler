@@ -8,8 +8,9 @@
     <div class="hero">
       <div class="hero-body">
         <ul id="scheduleManagerCourseList">
-          <li v-for="course in courses" :key="course.name">
-            <CourseListItem :course="course" :selectedSectionNumber="1" />
+          <li v-for="(course, index) in courses" :key="course.name">
+            <CourseListItem :course="course" :selectedSectionNumber="1" :index="index"
+            @changeSection="showChangeSectionModal" />
             <br/>
           </li>
         </ul>
@@ -23,6 +24,9 @@
     <b-modal :active.sync="isAddCourseModalActive" has-modal-card>
       <AddCourseModal/>
     </b-modal>
+    <b-modal :active.sync="isChangeSectionModalActive" has-modal-card>
+      <ChangeSectionModal/>
+    </b-modal>
     <br/>
   </div>
 </template>
@@ -30,16 +34,24 @@
 <script>
 import ScheduleManagerCourseListItem from './CourseListItem';
 import ScheduleManagerAddCourseModal from './AddCourseModal';
+import ChangeSectionModal from './ChangeSectionModal';
 
 export default {
   name: 'ScheduleManagerSideBar',
   components: {
     CourseListItem: ScheduleManagerCourseListItem,
     AddCourseModal: ScheduleManagerAddCourseModal,
+    ChangeSectionModal,
+  },
+  methods: {
+    showChangeSectionModal() {
+      this.isChangeSectionModalActive = true;
+    },
   },
   data() {
     return {
       isAddCourseModalActive: false,
+      isChangeSectionModalActive: false,
       courses: [
         {
           name: 'Prog Lang',
@@ -47,7 +59,7 @@ export default {
           sections: [
             {
               number: 1,
-              teacher: 'ASS',
+              teacher: 'ASD',
               timeRanges: [
                 { day: 'mon', start: '18:00', end: '19:00' },
               ],

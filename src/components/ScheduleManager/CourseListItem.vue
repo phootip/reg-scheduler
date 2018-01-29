@@ -38,7 +38,7 @@
       </table>
     </div>
     <div class="card-footer">
-      <a href="#" class="card-footer-item">Change</a>
+      <a href="#" class="card-footer-item" @click="() => this.$emit('changeSection', index)">Change</a>
       <a href="#" class="card-footer-item">Hide</a>
       <a href="#" class="card-footer-item">Delete</a>
     </div>
@@ -64,6 +64,12 @@ export default {
         return 0;
       },
     },
+    index: {
+      type: Number,
+      default() {
+        return 0;
+      }
+    }
   },
   computed: {
     selectedSection() {
