@@ -4,13 +4,13 @@
 
 ### props
 #### `mainHeaders`
-- Type: `[MainHeader]`
+- Type: `[ScheduleHeader]`
 - Details:
 
   Headers used in the main axis, also used to access grouped items.
 
 #### `crossHeaders`
-- Type: `[String]`
+- Type: `[ScheduleItem]`
 - Details
 
   Headers used in the cross axis.

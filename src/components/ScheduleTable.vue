@@ -9,7 +9,7 @@
       <div class="row">
         <div v-for="crossHeader in crossHeaders" :key="crossHeader" class="column grow">
           <div class="cell">
-            {{ crossHeader }}
+            {{ crossHeader.name }}
           </div>
         </div>
       </div>
@@ -28,6 +28,10 @@
 </template>
 
 <script>
+import ScheduleHeader from '../model/ScheduleHeader';
+import ScheduleItem from '../model/ScheduleItem';
+import TimeRange from '../model/TimeRange';
+
 export default {
   name: 'ScheduleTable',
   props: {
@@ -35,26 +39,11 @@ export default {
       type: Array,
       default() {
         return [
-          {
-            key: 'mon',
-            name: 'Monday',
-          },
-          {
-            key: 'tue',
-            name: 'Tuesday',
-          },
-          {
-            key: 'wed',
-            name: 'Wednesday',
-          },
-          {
-            key: 'thu',
-            name: 'Thursday',
-          },
-          {
-            key: 'fri',
-            name: 'Friday',
-          },
+          new ScheduleHeader('Monday', 'mon'),
+          new ScheduleHeader('Tuesday', 'tue'),
+          new ScheduleHeader('Wednesday', 'wed'),
+          new ScheduleHeader('Thursday', 'thu'),
+          new ScheduleHeader('Friday', 'fri'),
         ];
       },
     },
@@ -62,7 +51,7 @@ export default {
       type: Array,
       default() {
         return [
-          '',
+          new ScheduleItem('', new TimeRange('mon', '08:00', '16:00')),
         ];
       },
     },
