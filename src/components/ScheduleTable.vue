@@ -1,7 +1,12 @@
 <template>
   <div class="schedule-container schedule-row">
     <div class="schedule-column offset-top border-horizontal">
-      <div v-for="mainHeader in mainHeaders" :key="mainHeader.name" class="schedule-cell">
+      <div
+        v-for="(mainHeader, index) in mainHeaders"
+        class="schedule-cell"
+        :class="{'alt-background': index%2 === 0}"
+        :key="mainHeader.name"
+      >
         {{ mainHeader.name }}
       </div>
     </div>
@@ -13,7 +18,12 @@
           </div>
         </div>
       </div>
-      <div v-for="mainHeader in mainHeaders" :key="mainHeader.key" class="schedule-cell">
+      <div
+        v-for="(mainHeader, index) in mainHeaders"
+        class="schedule-cell"
+        :class="{'alt-background': index%2 === 0}"
+        :key="mainHeader.key"
+      >
         <div
           v-for="item in items[mainHeader.key]"
           :key="item.id"
@@ -93,6 +103,9 @@ export default {
 .schedule-item {
   position: absolute;
   padding: 0;
+}
+.alt-background {
+  background-color: whitesmoke;
 }
 .border-horizontal {
   border-left: 1px solid #dbdbdb;
