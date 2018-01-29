@@ -1,11 +1,11 @@
 <template>
   <div class="schedule-container schedule-row">
-    <div class="schedule-column offset-top">
+    <div class="schedule-column offset-top border-horizontal">
       <div v-for="mainHeader in mainHeaders" :key="mainHeader.name" class="schedule-cell">
         {{ mainHeader.name }}
       </div>
     </div>
-    <div class="schedule-column grow">
+    <div class="schedule-column grow border-horizontal">
       <div class="schedule-row">
         <div v-for="crossHeader in crossHeaders" :key="crossHeader" class="schedule-column grow">
           <div class="schedule-cell">
@@ -93,5 +93,9 @@ export default {
 .schedule-item {
   position: absolute;
   padding: 0;
+}
+.border-horizontal {
+  border-left: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
 }
 </style>
