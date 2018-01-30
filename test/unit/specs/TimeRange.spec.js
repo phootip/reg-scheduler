@@ -96,6 +96,14 @@ describe('TimeRange', () => {
     expect(t1.isConflictWith(tdf4)).toEqual(false);
   });
 
+  it('can represent time as integer values', () => {
+    expect(TimeRange.getValue('00:00')).toEqual(0);
+    expect(TimeRange.getValue('09:55')).toEqual(595);
+    expect(TimeRange.getValue('18:45')).toEqual(1125);
+    expect(TimeRange.getValue('20:01')).toEqual(1201);
+    expect(TimeRange.getValue('24:00')).toEqual(1440);
+  });
+
   it('can parse the json object', () => {
     const json = {
       day: 'mon',

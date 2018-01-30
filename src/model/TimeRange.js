@@ -94,6 +94,11 @@ export default class TimeRange {
     return 1;
   }
 
+  static getValue(time) {
+    const { hour, min } = TimeRange.tokenizeTime(time);
+    return (hour * 60) + min;
+  }
+
   validateStartEnd() {
     const { start, end } = this;
     if (this.checkTdf()) return;
