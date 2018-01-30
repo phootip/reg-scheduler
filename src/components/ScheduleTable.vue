@@ -11,16 +11,22 @@
       </div>
     </div>
     <div class="schedule-column grow border-horizontal">
-      <div class="schedule-row">
-        <div v-for="crossHeader in crossHeaders" :key="crossHeader" class="schedule-column grow">
-          <div class="schedule-cell">
-            {{ crossHeader.name }}
-          </div>
+      <div class="schedule-cell schedule-item-container">
+        <div
+          v-for="crossHeader in crossHeaders"
+          :key="crossHeader.id"
+          class="schedule-item schedule-header-item"
+          :style="{
+            left: getRangePosition(crossHeader.timeRange, crossHeaderRange),
+            width: getRangeSize(crossHeader.timeRange, crossHeaderRange),
+          }"
+        >
+          {{ crossHeader.name }}
         </div>
       </div>
       <div
         v-for="(mainHeader, index) in mainHeaders"
-        class="schedule-cell"
+        class="schedule-cell schedule-item-container"
         :class="{'alt-background': index%2 === 0}"
         :key="mainHeader.key"
       >
@@ -28,9 +34,13 @@
           v-for="item in items[mainHeader.key]"
           :key="item.id"
           class="schedule-item"
-          :style="{ backgroundColor: item.color, left: 'auto', width: '10%' }"
+          :style="{
+            backgroundColor: item.color,
+            left: getRangePosition(item.timeRange, crossHeaderRange),
+            width: getRangeSize(item.timeRange, crossHeaderRange),
+          }"
         >
-          {{ item.id }}
+          {{ item.name }}
         </div>
       </div>
     </div>
@@ -57,12 +67,10 @@ export default {
         ];
       },
     },
-    crossHeaders: {
-      type: Array,
+    crossHeaderRange: {
+      type: TimeRange,
       default() {
-        return [
-          new ScheduleItem('', new TimeRange('mon', '08:00', '16:00')),
-        ];
+        return new TimeRange('mon', '08:00', '16:00');
       },
     },
     items: {
@@ -70,6 +78,32 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+  computed: {
+    crossHeaders() {
+      return Object.values(this.items)
+        .reduce((prev, current) => prev.concat(current), [])
+        .map(item => item.timeRange)
+        .sort((timeRangeA, timeRangeB) => TimeRange.compareTime(timeRangeA.start, timeRangeB.start))
+        .reduceRight((prev, current) => [
+          new TimeRange('mon', current.start, prev[0].start),
+          ...prev,
+        ], [new TimeRange('mon', this.crossHeaderRange.end, this.crossHeaderRange.end)])
+        .slice(0, -1)
+        .map(timeRange => new ScheduleItem(timeRange.start, timeRange));
+    },
+  },
+  methods: {
+    getRangePosition(currentRange, totalRange) {
+      const currentStart = TimeRange.getValue(currentRange.start);
+      const total = TimeRange.getValue(totalRange.end) - TimeRange.getValue(totalRange.start);
+      return `${((currentStart - total) * 100) / total}%`;
+    },
+    getRangeSize(currentRange, totalRange) {
+      const current = TimeRange.getValue(currentRange.end) - TimeRange.getValue(currentRange.start);
+      const total = TimeRange.getValue(totalRange.end) - TimeRange.getValue(totalRange.start);
+      return `${(current * 100) / total}%`;
     },
   },
 };
@@ -100,9 +134,16 @@ export default {
   flex-basis: 0;
   flex-grow: 1;
 }
+.schedule-item-container {
+  position: relative;
+}
 .schedule-item {
   position: absolute;
   padding: 0;
+}
+.schedule-header-item {
+  text-align: left;
+  border-left: 1px solid #dbdbdb;
 }
 .alt-background {
   background-color: whitesmoke;
