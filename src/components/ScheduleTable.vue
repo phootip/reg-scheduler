@@ -10,12 +10,12 @@
         {{ mainHeader.name }}
       </div>
     </div>
-    <div class="schedule-column grow border-horizontal">
-      <div class="schedule-cell schedule-item-container">
+    <div class="schedule-column schedule-item-container grow border-horizontal">
+      <div class="schedule-cell">
         <div
           v-for="crossHeader in crossHeaders"
           :key="crossHeader.id"
-          class="schedule-item schedule-header-item"
+          class="schedule-item schedule-item-header"
           :style="{
             left: getRangePosition(crossHeader.timeRange, crossHeaderRange),
             width: getRangeSize(crossHeader.timeRange, crossHeaderRange),
@@ -26,7 +26,7 @@
       </div>
       <div
         v-for="(mainHeader, index) in mainHeaders"
-        class="schedule-cell schedule-item-container"
+        class="schedule-cell"
         :class="{'alt-background': index%2 === 0}"
         :key="mainHeader.key"
       >
@@ -122,28 +122,30 @@ export default {
   flex-direction: column;
   justify-content: stretch;
 }
-.offset-top {
-  padding-top: 2.5rem;
-}
 .schedule-cell {
   height: 2.5rem;
   padding: 0.5rem;
   text-align: center;
-}
-.grow {
-  flex-basis: 0;
-  flex-grow: 1;
 }
 .schedule-item-container {
   position: relative;
 }
 .schedule-item {
   position: absolute;
-  padding: 0;
 }
-.schedule-header-item {
+.schedule-item-header {
   text-align: left;
   border-left: 1px solid #dbdbdb;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.grow {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+.offset-top {
+  padding-top: 2.5rem;
 }
 .alt-background {
   background-color: whitesmoke;
