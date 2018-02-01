@@ -12,17 +12,15 @@
     </div>
     <div class="schedule-column schedule-item-container grow border-horizontal">
       <div class="schedule-cell">
-        <div
+        <ScheduleTableItem
           v-for="crossHeader in crossHeaders"
           :key="crossHeader.id"
-          class="schedule-item schedule-item-header"
-          :style="{
-            left: getRangePosition(crossHeader.timeRange, crossHeaderRange),
-            width: getRangeSize(crossHeader.timeRange, crossHeaderRange),
-          }"
+          :time-range="crossHeader.timeRange"
+          :total-range-value="totalRangeValue"
+          header
         >
           {{ crossHeader.name }}
-        </div>
+        </ScheduleTableItem>
       </div>
       <div
         v-for="(mainHeader, index) in mainHeaders"
@@ -30,18 +28,17 @@
         :class="{'alt-background': index%2 === 0}"
         :key="mainHeader.key"
       >
-        <div
+        <ScheduleTableItem
           v-for="item in items[mainHeader.key]"
           :key="item.id"
-          class="schedule-item"
+          :time-range="item.timeRange"
+          :total-range-value="totalRangeValue"
           :style="{
             backgroundColor: item.color,
-            left: getRangePosition(item.timeRange, crossHeaderRange),
-            width: getRangeSize(item.timeRange, crossHeaderRange),
           }"
         >
           {{ item.name }}
-        </div>
+        </ScheduleTableItem>
       </div>
     </div>
   </div>
@@ -51,6 +48,7 @@
 import ScheduleHeader from '../model/ScheduleHeader';
 import ScheduleItem from '../model/ScheduleItem';
 import TimeRange from '../model/TimeRange';
+import ScheduleTableItem from './ScheduleTableItem';
 
 export default {
   name: 'ScheduleTable',
@@ -67,7 +65,7 @@ export default {
         ];
       },
     },
-    crossHeaderRange: {
+    totalRange: {
       type: TimeRange,
       default() {
         return new TimeRange('mon', '08:00', '16:00');
@@ -76,7 +74,25 @@ export default {
     items: {
       type: Object,
       default() {
-        return {};
+        const items = {
+          mon: [
+            new ScheduleItem('foo', new TimeRange('mon', '08:00', '09:30'), 0, 'red'),
+            new ScheduleItem('bar', new TimeRange('mon', '09:30', '12:30'), 1, 'green'),
+          ],
+          tue: [
+            new ScheduleItem('baz', new TimeRange('mon', '09:00', '11:00'), 2, 'blue'),
+          ],
+          wed: [],
+          thu: [
+            new ScheduleItem('qux', new TimeRange('mon', '13:00', '16:00'), 3, 'yellow'),
+            new ScheduleItem('quux', new TimeRange('mon', '14:00', '15:30'), 4, 'red'),
+          ],
+          fri: [
+            new ScheduleItem('quuz', new TimeRange('mon', '12:00', '14:00'), 5, 'gray'),
+          ],
+        };
+        return items;
+        // return {};
       },
     },
   },
@@ -89,22 +105,16 @@ export default {
         .reduceRight((prev, current) => [
           new TimeRange('mon', current.start, prev[0].start),
           ...prev,
-        ], [new TimeRange('mon', this.crossHeaderRange.end, this.crossHeaderRange.end)])
+        ], [new TimeRange('mon', this.totalRange.end, this.totalRange.end)])
         .slice(0, -1)
         .map(timeRange => new ScheduleItem(timeRange.start, timeRange));
     },
+    totalRangeValue() {
+      return TimeRange.getValue(this.totalRange.end) - TimeRange.getValue(this.totalRange.start);
+    },
   },
-  methods: {
-    getRangePosition(currentRange, totalRange) {
-      const currentStart = TimeRange.getValue(currentRange.start);
-      const total = TimeRange.getValue(totalRange.end) - TimeRange.getValue(totalRange.start);
-      return `${((currentStart - total) * 100) / total}%`;
-    },
-    getRangeSize(currentRange, totalRange) {
-      const current = TimeRange.getValue(currentRange.end) - TimeRange.getValue(currentRange.start);
-      const total = TimeRange.getValue(totalRange.end) - TimeRange.getValue(totalRange.start);
-      return `${(current * 100) / total}%`;
-    },
+  components: {
+    ScheduleTableItem,
   },
 };
 </script>

@@ -19,7 +19,7 @@
 
   Headers used in the main axis, also used to access grouped items.
 
-#### `crossHeaderRange`
+#### `totalRange`
 - Type: `TimeRange`
 - Default value: `TimeRange('mon', '08:00', '16:00')`
 - Details
