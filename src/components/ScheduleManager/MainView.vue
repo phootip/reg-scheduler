@@ -8,10 +8,10 @@
     <schedule-table :items="scheduleItems" />
     <div class="hero has-text-centered is-success">
       <h1 class="is-uppercase is-size-7">
-        Midterms Schedule
+        Midterms Schedule (flipped)
       </h1>
     </div>
-    <schedule-table :main-headers="midtermDates" />
+    <schedule-table :main-headers="midtermDates" flipped />
     <div class="hero has-text-centered is-success">
       <h1 class="is-uppercase is-size-7">
         Finals Schedule
