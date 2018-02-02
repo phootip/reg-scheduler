@@ -5,18 +5,30 @@
 ### props
 #### `mainHeaders`
 - Type: `[ScheduleHeader]`
+- Default value:
+  ```
+  [
+    ScheduleHeader('Monday', 'mon'),
+    ScheduleHeader('Tuesday', 'tue'),
+    ScheduleHeader('Wednesday', 'wed'),
+    ScheduleHeader('Thursday', 'thu'),
+    ScheduleHeader('Friday', 'fri'),
+  ];
+  ```
 - Details:
 
   Headers used in the main axis, also used to access grouped items.
 
-#### `crossHeaders`
-- Type: `[ScheduleItem]`
+#### `totalRange`
+- Type: `TimeRange`
+- Default value: `TimeRange('mon', '08:00', '16:00')`
 - Details
 
-  Headers used in the cross axis.
+  The range which the whole table covers.
 
 #### `items`
-- Type: `[ScheduleItem]`
+- Type: `{key: [ScheduleItem]}`
+- Default value: `{}`
 - Details:
 
-  Items included in the table.
+  Items included in the table. `key` refers to the keys of `mainHeaders`.
