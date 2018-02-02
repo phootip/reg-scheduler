@@ -1,5 +1,5 @@
 <template>
-  <div class="schedule-item" :class="{'schedule-item-header': header}" :style="{left, width}">
+  <div class="schedule-item" :class="{'schedule-item-header': header}" :style="styleObject">
     <slot></slot>
   </div>
 </template>
@@ -19,16 +19,31 @@ export default {
     totalRangeValue: {
       type: Number,
     },
+    flipped: {
+      type: Boolean,
+    },
   },
   computed: {
-    left() {
+    start() {
       const startValue = TimeRange.getValue(this.timeRange.start);
       return `${((startValue - this.totalRangeValue) * 100) / this.totalRangeValue}%`;
     },
-    width() {
+    size() {
       const timeRangeValue =
         TimeRange.getValue(this.timeRange.end) - TimeRange.getValue(this.timeRange.start);
       return `${(timeRangeValue * 100) / this.totalRangeValue}%`;
+    },
+    styleObject() {
+      if (this.flipped) {
+        return {
+          top: this.start,
+          height: this.size,
+        };
+      }
+      return {
+        left: this.start,
+        width: this.size,
+      };
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="schedule-container schedule-row">
+  <div class="schedule-container schedule-row" :class="{ 'schedule-flipped': flipped }">
     <div class="schedule-column offset-top border-horizontal">
       <div
         v-for="(mainHeader, index) in mainHeaders"
@@ -19,6 +19,7 @@
           :key="crossHeader.id"
           :time-range="crossHeader.timeRange"
           :total-range-value="totalRangeValue"
+          :flipped="flipped"
           header
         >
           {{ crossHeader.name }}
@@ -38,6 +39,7 @@
           :style="{
             backgroundColor: item.color,
           }"
+          :flipped="flipped"
         >
           {{ item.name }}
         </ScheduleTableItem>
@@ -79,6 +81,9 @@ export default {
         return {};
       },
     },
+    flipped: {
+      type: Boolean,
+    },
   },
   computed: {
     crossHeaders() {
@@ -107,14 +112,24 @@ export default {
 .schedule-container {
   width: 100%;
 }
+.schedule-flipped.schedule-container {
+  width: unset;
+  height: 100%;
+}
 .schedule-row {
   display: flex;
   justify-content: stretch;
+}
+.schedule-flipped.schedule-row {
+  flex-direction: column;
 }
 .schedule-column {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
+}
+.schedule-flipped .schedule-column {
+  flex-direction: row;
 }
 .schedule-cell {
   height: 4rem;
@@ -122,6 +137,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.schedule-flipped .schedule-cell {
+  height: unset;
+  width: 8rem;
 }
 .schedule-item-container {
   position: relative;
@@ -136,12 +155,22 @@ export default {
   left: 0;
   height: 100%;
 }
+.schedule-flipped .schedule-item-header {
+  border-left: unset;
+  border-top: 1px solid #dbdbdb;
+  height: unset;
+  width: 100%;
+}
 .grow {
   flex-basis: 0;
   flex-grow: 1;
 }
 .offset-top {
   padding-top: 4rem;
+}
+.schedule-flipped .offset-top {
+  padding-top: unset;
+  padding-left: 8rem;
 }
 .content {
   margin: 0.5rem;
@@ -152,5 +181,11 @@ export default {
 .border-horizontal {
   border-left: 1px solid #dbdbdb;
   border-right: 1px solid #dbdbdb;
+}
+.schedule-flipped .border-horizontal {
+  border-left: unset;
+  border-right: unset;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
 }
 </style>
