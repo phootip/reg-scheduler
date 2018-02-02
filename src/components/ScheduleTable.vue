@@ -7,7 +7,9 @@
         :class="{'alt-background': index%2 === 0}"
         :key="mainHeader.name"
       >
-        {{ mainHeader.name }}
+        <span class="content">
+          {{ mainHeader.name }}
+        </span>
       </div>
     </div>
     <div class="schedule-column schedule-item-container grow border-horizontal">
@@ -115,9 +117,11 @@ export default {
   justify-content: stretch;
 }
 .schedule-cell {
-  height: 2.5rem;
-  padding: 0.5rem;
+  height: 4rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .schedule-item-container {
   position: relative;
@@ -137,7 +141,10 @@ export default {
   flex-grow: 1;
 }
 .offset-top {
-  padding-top: 2.5rem;
+  padding-top: 4rem;
+}
+.content {
+  margin: 0.5rem;
 }
 .alt-background {
   background-color: whitesmoke;
