@@ -6,6 +6,13 @@
       </h1>
     </div>
     <div class="hero">
+      <div class="hero has-text-centered">
+        <a @click="isAddCourseModalActive = true" class="button is-small is-success">
+          Add another Course
+        </a>
+      </div>
+    </div>
+    <div class="hero">
       <div class="hero-body">
         <ul id="scheduleManagerCourseList">
           <li v-for="(course, index) in courses" :key="course.name">
@@ -15,11 +22,6 @@
           </li>
         </ul>
       </div>
-    </div>
-    <div class="hero">
-        <a @click="isAddCourseModalActive = true" class="button is-success">
-          Add another Course
-        </a>
     </div>
     <b-modal :active.sync="isAddCourseModalActive" has-modal-card>
       <AddCourseModal/>

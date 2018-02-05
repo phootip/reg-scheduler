@@ -26,10 +26,10 @@
             <td>
               <table class="table is-narrow is-marginless">
                 <tbody>
-                  <td style="padding-top: 0;" class="is-uppercase">MON</td>
-                  <td style="padding-top: 0;">18.00</td>
-                  <td style="padding-top: 0;">-</td>
-                  <td style="padding-top: 0;">19.00</td>
+                  <td style="padding-top: 0; border-width: 0;" class="is-uppercase">MON</td>
+                  <td style="padding-top: 0; border-width: 0;">18.00</td>
+                  <td style="padding-top: 0; border-width: 0;">-</td>
+                  <td style="padding-top: 0; border-width: 0;">19.00</td>
                 </tbody>
               </table>
             </td>
@@ -46,7 +46,7 @@
                   <td style="padding-top: 0;" class="is-uppercase">MON</td>
                   <td style="padding-top: 0;">18.00</td>
                   <td style="padding-top: 0;">-</td>
-                  <td style="padding-top: 0;">19.00</td>
+                  <td style="padding-top: 0; border-width: 0;">19.00</td>
                 </tbody>
               </table>
             </td>
@@ -69,7 +69,7 @@ export default {
   name: 'ChangeSectionModal',
   data() {
     return {
-      selectSection: 0
+      selectSection: 0,
     };
   },
 };
