@@ -5,19 +5,19 @@
         Class Schedule
       </h1>
     </div>
-    <schedule-table :items="scheduleItems" />
+    <ScheduleTable :items="scheduleItems" />
     <div class="hero has-text-centered is-success">
       <h1 class="is-uppercase is-size-7">
         Midterms Schedule (flipped)
       </h1>
     </div>
-    <schedule-table :main-headers="midtermDates" flipped />
+    <ScheduleTable :items="scheduleItems" flipped />
     <div class="hero has-text-centered is-success">
       <h1 class="is-uppercase is-size-7">
         Finals Schedule
       </h1>
     </div>
-    <schedule-table :main-headers="finalDates" />
+    <ScheduleTable :main-headers="finalDates" />
   </div>
 </template>
 

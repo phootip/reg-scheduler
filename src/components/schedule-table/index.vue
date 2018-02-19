@@ -22,7 +22,9 @@
           :flipped="flipped"
           header
         >
-          {{ crossHeader.name }}
+          <span class="cross-content">
+            {{ crossHeader.name }}
+          </span>
         </ScheduleTableItem>
       </div>
       <div
@@ -174,6 +176,13 @@ export default {
 }
 .content {
   margin: 0.5rem;
+}
+.cross-content {
+  display: inline-block;
+  transform: rotate(-90deg) translate(-1rem, -0.5rem);
+}
+.schedule-flipped .cross-content {
+  transform: unset;
 }
 .alt-background {
   background-color: whitesmoke;
