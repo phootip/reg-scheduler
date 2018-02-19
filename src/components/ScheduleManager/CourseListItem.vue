@@ -38,9 +38,6 @@
       </table>
     </div>
     <div class="card-footer">
-<<<<<<< HEAD
-      <a class="card-footer-item" @click="() => this.$emit('changeSection', index)">Change</a>
-=======
       <a
         href="#"
         class="card-footer-item"
@@ -48,7 +45,6 @@
       >
         Change
       </a>
->>>>>>> refs/remotes/origin/master
       <a href="#" class="card-footer-item">Hide</a>
       <a href="#" class="card-footer-item">Delete</a>
     </div>
