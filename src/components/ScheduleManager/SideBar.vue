@@ -104,15 +104,8 @@ export default {
 <style scoped>
 @media screen and (min-width: 1024px) {
   .sidebar {
-    overflow-y: hidden;
     height: 100%;
     width: 100%;
-    top: 0;
-    position: absolute;
-  }
-
-  .sidebar:hover {
-    overflow-y: overlay;
   }
 }
 
@@ -120,16 +113,5 @@ export default {
   .sidebar {
     position: relative;
   }
-}
-.sidebar::-webkit-scrollbar {
-  background: none;
-}
-.sidebar::-webkit-scrollbar-track {
-  background: rgba(100, 100, 100, 0.05);
-  border-radius: 20px;
-}
-.sidebar::-webkit-scrollbar-thumb {
-  background: rgba(200, 200, 200, 0.8);
-  border-radius: 20px;
 }
 </style>
