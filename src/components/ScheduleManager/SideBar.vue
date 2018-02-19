@@ -104,6 +104,7 @@ export default {
 <style scoped>
 @media screen and (min-width: 1024px) {
   .sidebar {
+    height: 100%;
     width: 100%;
   }
 }
