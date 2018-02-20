@@ -12,8 +12,8 @@
         </span>
       </div>
     </div>
-    <div class="schedule-column schedule-item-container grow border-horizontal">
-      <div class="schedule-cell">
+    <div class="schedule-column grow border-horizontal">
+      <div class="schedule-cell schedule-item-container">
         <ScheduleTableItem
           v-for="crossHeader in crossHeaders"
           :key="crossHeader.id"
@@ -29,7 +29,7 @@
       </div>
       <div
         v-for="(mainHeader, index) in mainHeaders"
-        class="schedule-cell"
+        class="schedule-cell schedule-item-container"
         :class="{'alt-background': index%2 === 0}"
         :key="mainHeader.key"
       >
