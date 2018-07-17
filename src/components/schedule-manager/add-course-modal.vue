@@ -75,7 +75,7 @@
 <script>
 const transform = date => (date && `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`) || '';
 export default {
-  name: 'ScheduleManagerAddCourseModal',
+  name: 'AddCourseModal',
   data() {
     return {
       activeTab: 0,

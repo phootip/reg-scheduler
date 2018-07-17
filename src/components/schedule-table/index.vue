@@ -53,7 +53,7 @@
 <script>
 import ScheduleHeader from '@/model/schedule-header';
 import ScheduleItem from '@/model/schedule-item';
-import TimeRange from '@/model/timerange';
+import TimeRange from '@/model/time-range';
 import ScheduleTableItem from './schedule-table-item';
 
 export default {
