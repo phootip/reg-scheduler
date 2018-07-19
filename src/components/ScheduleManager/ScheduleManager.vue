@@ -2,10 +2,14 @@
   <div class="hero fullscreen">
     <div class="columns is-gapless">
       <div class="column is-one-third sidebar">
-        <SideBar/>
+        <ScrollbarHider>
+          <SideBar/>
+        </ScrollbarHider>
       </div>
       <div class="column">
-        <MainView/>
+        <ScrollbarHider>
+          <MainView/>
+        </ScrollbarHider>
       </div>
     </div>
   </div>
@@ -14,12 +18,14 @@
 <script>
 import ScheduleManagerSideBar from './SideBar';
 import ScheduleManagerMainView from './MainView';
+import ScrollbarHider from '../ScrollbarHider';
 
 export default {
   name: 'ScheduleManager',
   components: {
     SideBar: ScheduleManagerSideBar,
     MainView: ScheduleManagerMainView,
+    ScrollbarHider,
   },
 };
 </script>

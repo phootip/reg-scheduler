@@ -73,23 +73,7 @@ export default {
 <style scoped>
   @media screen and (min-width: 1024px) {
     #scheduleManagerMainView {
-      overflow-y: hidden;
       height: 90vh;
     }
-    #scheduleManagerMainView:hover {
-      overflow-y: overlay;
-    }
-  }
-
-  #scheduleManagerMainView::-webkit-scrollbar {
-    background: none;
-  }
-  #scheduleManagerMainView::-webkit-scrollbar-track {
-    background: rgba(100, 100, 100, 0.05);
-    border-radius: 20px;
-  }
-  #scheduleManagerMainView::-webkit-scrollbar-thumb {
-    background: rgba(200, 200, 200, 0.8);
-    border-radius: 20px;
   }
 </style>
