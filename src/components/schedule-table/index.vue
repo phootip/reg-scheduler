@@ -116,7 +116,8 @@ export default {
 }
 .schedule-flipped.schedule-container {
   width: unset;
-  height: 100%;
+  min-height: 480px;
+  height: calc(100vh - 4rem);
 }
 .schedule-row {
   display: flex;
