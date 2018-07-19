@@ -13,7 +13,7 @@
         </span>
       </p>
     </a>
-    <div class="card-content" v-if="!isCollapsed">
+    <div class="card-content" v-show="!isCollapsed">
       <table class="table is-narrow is-marginless is-fullwidth is-hidden-touch">
         <thead>
           <th>#</th>
@@ -40,7 +40,7 @@
         </tbody>
       </table>
     </div>
-    <div class="card-footer" v-if="!isCollapsed">
+    <div class="card-footer" v-show="!isCollapsed">
       <a
         href="#"
         class="card-footer-item"
