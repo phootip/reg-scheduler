@@ -7,10 +7,7 @@
     </div>
     <div class="columns">
       <div class="column is-offset-one-third is-two-third">
-        <ScrollbarHider>
-          <ScheduleView/>
-          <!-- TODO: faded content at bottom to indicate scrollable -->
-        </ScrollbarHider>
+        <ScheduleView/>
       </div>
     </div>
   </div>
