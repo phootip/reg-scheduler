@@ -2,9 +2,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Buefy from 'buefy';
 import 'buefy/lib/buefy.css';
-import Main from '@/components/Main';
-import About from '@/components/About';
-import ScheduleManager from '@/components/ScheduleManager/ScheduleManager';
+import Main from '@/components/main';
+import About from '@/components/about';
+import ScheduleManager from '@/components/schedule-manager';
 
 Vue.use(Router);
 Vue.use(Buefy);

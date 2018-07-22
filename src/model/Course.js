@@ -1,4 +1,4 @@
-import Section from './Section';
+import Section from './section';
 
 export default class Course {
   constructor(courseName) {

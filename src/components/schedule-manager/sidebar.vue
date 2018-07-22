@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import ScheduleManagerCourseListItem from './CourseListItem';
-import ScheduleManagerAddCourseModal from './AddCourseModal';
-import ChangeSectionModal from './ChangeSectionModal';
+import ScheduleManagerCourseListItem from './course-list-item';
+import ScheduleManagerAddCourseModal from './add-course-modal';
+import ChangeSectionModal from './change-section-modal';
 
 export default {
   name: 'ScheduleManagerSideBar',

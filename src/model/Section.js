@@ -1,4 +1,4 @@
-import TimeRange from './TimeRange';
+import TimeRange from './timerange';
 
 export default class Section {
   constructor(sectionNumber) {
