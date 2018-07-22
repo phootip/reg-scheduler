@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ScheduleTable from '@/schedule-table';
+import ScheduleTable from '@/components/schedule-table';
 import ScheduleHeader from '@/model/schedule-header';
 import ScheduleItem from '@/model/schedule-item';
 import TimeRange from '@/model/timerange';

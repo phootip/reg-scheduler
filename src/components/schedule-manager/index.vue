@@ -16,9 +16,9 @@
 </template>
 
 <script>
+import ScrollbarHider from '@/components/scroll-bar-hider';
 import ScheduleManagerSideBar from './sidebar';
 import ScheduleManagerMainView from './main-view';
-import ScrollbarHider from '@/scroll-bar-hider';
 
 export default {
   name: 'ScheduleManager',
