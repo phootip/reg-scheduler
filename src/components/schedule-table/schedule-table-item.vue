@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TimeRange from '../model/TimeRange';
+import TimeRange from '@/model/timerange';
 
 export default {
   name: 'ScheduleTableItem',

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Layout from './Layout';
-import Nav from './Nav';
+import Layout from './layout';
+import Nav from './nav';
 
 export default {
   name: 'Main',

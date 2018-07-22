@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import ScheduleTable from '../ScheduleTable';
-import ScheduleHeader from '../../model/ScheduleHeader';
-import ScheduleItem from '../../model/ScheduleItem';
-import TimeRange from '../../model/TimeRange';
+import ScheduleTable from '@/components/schedule-table';
+import ScheduleHeader from '@/model/schedule-header';
+import ScheduleItem from '@/model/schedule-item';
+import TimeRange from '@/model/timerange';
 
 export default {
   name: 'ScheduleManagerMainView',

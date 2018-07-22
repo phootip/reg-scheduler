@@ -49,10 +49,10 @@
 </template>
 
 <script>
-import ScheduleHeader from '../model/ScheduleHeader';
-import ScheduleItem from '../model/ScheduleItem';
-import TimeRange from '../model/TimeRange';
-import ScheduleTableItem from './ScheduleTableItem';
+import ScheduleHeader from '@/model/schedule-header';
+import ScheduleItem from '@/model/schedule-item';
+import TimeRange from '@/model/timerange';
+import ScheduleTableItem from './schedule-table-item';
 
 export default {
   name: 'ScheduleTable',
