@@ -8,7 +8,7 @@ We all know how well the infamous _reg chula_ performs. The worst thing is it ha
 
 One of the biggest difference between university and (Thai) secondary school is the students have to arrange their own class schedule. Arranging schedules can cause (at least to me) quite amount of pain in the process since we have to use the _reg chula_.
 
-With Chulalongkorn university being _one of the top leading university in Thailand_. We can't stand CU not having a high-end efficient tool helping students to do simple tasks such as arranging class schedule.
+With Chulalongkorn university being _one of the top leading universities in Thailand_. We can't stand CU not having a high-end efficient tool helping students to do simple tasks such as arranging class schedule.
 
 #### Real Project Details
 
