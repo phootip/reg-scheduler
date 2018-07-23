@@ -16,8 +16,12 @@
       <div class="hero-body">
         <ul id="scheduleManagerCourseList">
           <li v-for="(course, index) in courses" :key="course.name">
-            <CourseListItem :course="course" :selectedSectionNumber="1" :index="index"
-            @changeSection="showChangeSectionModal" />
+            <CourseListItem
+              :course="course"
+              :selectedSectionNumber="course.selectedSection"
+              :index="index"
+              @changeSection="showChangeSectionModal(index)"
+            />
             <br/>
           </li>
         </ul>
@@ -27,13 +31,16 @@
       <AddCourseModal/>
     </b-modal>
     <b-modal :active.sync="isChangeSectionModalActive" has-modal-card>
-      <ChangeSectionModal/>
+      <ChangeSectionModal
+        :courseIndex="changeSectionCourse"
+      />
     </b-modal>
     <br/>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import ScheduleManagerCourseListItem from './course-list-item';
 import ScheduleManagerAddCourseModal from './add-course-modal';
 import ChangeSectionModal from './change-section-modal';
@@ -46,58 +53,21 @@ export default {
     ChangeSectionModal,
   },
   methods: {
-    showChangeSectionModal() {
+    showChangeSectionModal(index) {
+      this.changeSectionCourse = index;
       this.isChangeSectionModalActive = true;
     },
+  },
+  computed: {
+    ...mapState([
+      'courses',
+    ]),
   },
   data() {
     return {
       isAddCourseModalActive: false,
       isChangeSectionModalActive: false,
-      courses: [
-        {
-          name: 'Prog Lang',
-          code: '2110316',
-          sections: [
-            {
-              number: 1,
-              teacher: 'ASD',
-              timeRanges: [
-                { day: 'mon', start: '18:00', end: '19:00' },
-              ],
-            },
-            {
-              number: 2,
-              teacher: 'DAM',
-              timeRanges: [
-                { day: 'mon', start: '18:00', end: '19:00' },
-                { day: 'tue', start: '18:00', end: '19:00' },
-              ],
-            },
-          ],
-        },
-        {
-          name: 'Comp Eng Ess',
-          code: '2110221',
-          sections: [
-            {
-              number: 1,
-              teacher: 'AST',
-              timeRanges: [
-                { day: 'mon', start: '18:00', end: '19:00' },
-                { day: 'tue', start: '18:00', end: '19:00' },
-              ],
-            },
-            {
-              number: 2,
-              teacher: 'DAM',
-              timeRanges: [
-                { day: 'mon', start: '18:00', end: '19:00' },
-              ],
-            },
-          ],
-        },
-      ],
+      changeSectionCourse: null,
     };
   },
 };
