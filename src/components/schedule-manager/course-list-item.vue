@@ -41,7 +41,7 @@
       <a
         href="#"
         class="card-footer-item"
-        @click="() => this.$emit('changeSection', index)"
+        @click="() => this.$emit('changeSection', courseCode)"
       >
         Change
       </a>
@@ -70,18 +70,16 @@ export default {
         return 0;
       },
     },
-    index: {
-      type: Number,
+    courseCode: {
+      type: String,
       default() {
-        return 0;
+        return '';
       },
     },
   },
   computed: {
     selectedSection() {
-      return this.course.sections.filter(
-        section => section.number === this.selectedSectionNumber,
-      )[0];
+      return this.course.sections[this.selectedSectionNumber];
     },
   },
 };
