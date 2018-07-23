@@ -11,15 +11,15 @@ const createStore = () => new VueX.Store({
             number: 1,
             teacher: 'ASD',
             timeRanges: [
-              { day: 'mon', start: '18:00', end: '19:00' },
+              { day: 'wed', start: '08:00', end: '09:00' },
             ],
           },
           2: {
             number: 2,
             teacher: 'DAM',
             timeRanges: [
-              { day: 'mon', start: '18:00', end: '19:00' },
-              { day: 'tue', start: '18:00', end: '19:00' },
+              { day: 'mon', start: '08:00', end: '09:00' },
+              { day: 'tue', start: '08:00', end: '09:00' },
             ],
           },
         },
@@ -33,15 +33,15 @@ const createStore = () => new VueX.Store({
             number: 1,
             teacher: 'AST',
             timeRanges: [
-              { day: 'mon', start: '18:00', end: '19:00' },
-              { day: 'tue', start: '18:00', end: '19:00' },
+              { day: 'mon', start: '08:00', end: '09:00' },
+              { day: 'tue', start: '08:00', end: '09:00' },
             ],
           },
           2: {
             number: 2,
             teacher: 'DAM',
             timeRanges: [
-              { day: 'mon', start: '18:00', end: '19:00' },
+              { day: 'thu', start: '09:00', end: '10:00' },
             ],
           },
         },
