@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import VueX from 'vuex';
 
 const createStore = () => new VueX.Store({
@@ -51,7 +52,7 @@ const createStore = () => new VueX.Store({
   },
   mutations: {
     addCourse(state, course) {
-      state.courses.push(course);
+      Vue.set(state.courses, course.code, course);
     },
     changeSelectedSection(state, payload) {
       state.courses[payload.courseIndex].selectedSection = payload.selectedSection;

@@ -36,22 +36,29 @@
           <section>
             <b-field grouped>
               <b-field label="ID">
-                <b-input placeholder="Course ID"></b-input>
+                <b-input v-model="rawManualCourseData.code" placeholder="Course ID"></b-input>
               </b-field>
               <b-field expanded label="Name">
-                <b-input placeholder="Course Name"></b-input>
+                <b-input v-model="rawManualCourseData.name" placeholder="Course Name"></b-input>
               </b-field>
             </b-field>
             <br/>
             <b-field grouped group-multiline>
               <b-field label="Day" expanded>
-                <b-select expanded placeholder="day"></b-select>
+                <b-select v-model="rawManualCourseData.day" expanded placeholder="day">
+                  <option v-for="day in ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']"
+                    :key="day" :value="day">
+                      {{ day.toUpperCase() }}
+                  </option>
+                </b-select>
               </b-field>
               <b-field label="From">
-                <b-timepicker placeholder="from" position="is-top-left"></b-timepicker>
+                <b-timepicker v-model="rawManualCourseData.from"
+                  placeholder="from" position="is-top-left"/>
               </b-field>
               <b-field label="To">
-                <b-timepicker placeholder="to" position="is-top-left"></b-timepicker>
+                <b-timepicker v-model="rawManualCourseData.to"
+                  placeholder="to" position="is-top-left"/>
               </b-field>
             </b-field>
           </section>
@@ -59,19 +66,54 @@
       </b-tabs>
     </div>
     <div class="modal-card-foot is-paddingless">
-      <a class="card-footer-item" @click="$parent.close()">OK</a>
+      <a class="card-footer-item" @click="handleOK">OK</a>
       <a class="card-footer-item" @click="$parent.close()">Cancel</a>
     </div>
   </div>
 </template>
 
 <script>
+const transform = date => (date && `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`) || '';
 export default {
   name: 'ScheduleManagerAddCourseModal',
   data() {
     return {
       activeTab: 0,
+      rawManualCourseData: {
+        name: '',
+        code: '',
+        day: 'MON',
+        from: null,
+        to: null,
+      },
     };
+  },
+  computed: {
+    manualCourseData() {
+      const { name, code, day, from, to } = this.rawManualCourseData;
+      return {
+        name,
+        code,
+        sections: {
+          1: {
+            number: 1,
+            teacher: 'NIL',
+            timeRanges: [{
+              day,
+              end: transform(to),
+              start: transform(from),
+            }],
+          },
+        },
+        selectedSection: 1,
+      };
+    },
+  },
+  methods: {
+    handleOK() {
+      this.$store.commit('addCourse', this.manualCourseData);
+      this.$parent.close();
+    },
   },
 };
 </script>

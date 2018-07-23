@@ -37,12 +37,12 @@ export default {
     ...mapState({
       scheduleItems(state) {
         return Object.values(state.courses).reduce((acc, course) => {
-            course.sections[course.selectedSection].timeRanges.forEach((timeRange) => {
-              if (acc[timeRange.day] === undefined) {
-                acc[timeRange.day] = [];
-              }
-              acc[timeRange.day].push(new ScheduleItem(course.code, timeRange));
-            });
+          course.sections[course.selectedSection].timeRanges.forEach((timeRange) => {
+            if (acc[timeRange.day] === undefined) {
+              acc[timeRange.day] = [];
+            }
+            acc[timeRange.day].push(new ScheduleItem(course.code, timeRange));
+          });
           return acc;
         }, {});
       },
