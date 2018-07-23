@@ -2,19 +2,19 @@ import VueX from 'vuex';
 
 const createStore = () => new VueX.Store({
   state: {
-    courses: [
-      {
+    courses: {
+      2110316: {
         name: 'Prog Lang',
         code: '2110316',
-        sections: [
-          {
+        sections: {
+          1: {
             number: 1,
             teacher: 'ASD',
             timeRanges: [
               { day: 'mon', start: '18:00', end: '19:00' },
             ],
           },
-          {
+          2: {
             number: 2,
             teacher: 'DAM',
             timeRanges: [
@@ -22,14 +22,14 @@ const createStore = () => new VueX.Store({
               { day: 'tue', start: '18:00', end: '19:00' },
             ],
           },
-        ],
+        },
         selectedSection: 1,
       },
-      {
+      2110221: {
         name: 'Comp Eng Ess',
         code: '2110221',
-        sections: [
-          {
+        sections: {
+          1: {
             number: 1,
             teacher: 'AST',
             timeRanges: [
@@ -37,17 +37,17 @@ const createStore = () => new VueX.Store({
               { day: 'tue', start: '18:00', end: '19:00' },
             ],
           },
-          {
+          2: {
             number: 2,
             teacher: 'DAM',
             timeRanges: [
               { day: 'mon', start: '18:00', end: '19:00' },
             ],
           },
-        ],
+        },
         selectedSection: 1,
       },
-    ],
+    },
   },
   mutations: {
     addCourse(state, course) {

@@ -15,12 +15,12 @@
     <div class="hero">
       <div class="hero-body">
         <ul id="scheduleManagerCourseList">
-          <li v-for="(course, index) in courses" :key="course.name">
+          <li v-for="(course, code) in courses" :key="course.name">
             <CourseListItem
               :course="course"
               :selectedSectionNumber="course.selectedSection"
-              :index="index"
-              @changeSection="showChangeSectionModal(index)"
+              :courseCode="code"
+              @changeSection="showChangeSectionModal(code)"
             />
             <br/>
           </li>
@@ -53,8 +53,8 @@ export default {
     ChangeSectionModal,
   },
   methods: {
-    showChangeSectionModal(index) {
-      this.changeSectionCourse = index;
+    showChangeSectionModal(code) {
+      this.changeSectionCourse = code;
       this.isChangeSectionModalActive = true;
     },
   },
