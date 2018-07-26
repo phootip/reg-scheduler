@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ScrollbarHider from '@/components/scroll-bar-hider';
+import ScrollbarHider from '@/components/scrollbar-hider';
 import Sidebar from './sidebar';
 import ScheduleView from './schedule-view';
 
