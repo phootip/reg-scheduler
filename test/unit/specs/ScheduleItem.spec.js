@@ -1,5 +1,5 @@
-import ScheduleItem from '../../../src/model/ScheduleItem';
-import TimeRange from '../../../src/model/TimeRange';
+import ScheduleItem from '@/model/schedule-item';
+import TimeRange from '@/model/time-range';
 
 describe('ScheduleItem', () => {
   it('has name, timeRange, id, color', () => {

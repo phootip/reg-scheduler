@@ -1,7 +1,7 @@
-import Section from '../../../src/model/Section';
-import Course from '../../../src/model/Course';
-import Schedule from '../../../src/model/Schedule';
-import TimeRange from '../../../src/model/TimeRange';
+import Section from '@/model/section';
+import Course from '@/model/course';
+import Schedule from '@/model/schedule';
+import TimeRange from '@/model/time-range';
 
 describe('Schedule', () => {
   it('can generate possible combination of Sections', () => {
