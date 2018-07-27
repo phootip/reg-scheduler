@@ -17,8 +17,8 @@ describe('ScheduleItem', () => {
     expect(item.id).toEqual('no id');
   });
 
-  it('sets color to transparent when not given', () => {
+  it('sets color to lightgray when not given', () => {
     const item = new ScheduleItem('no color', new TimeRange('mon', '18:00', '20:00'));
-    expect(item.color).toEqual('transparent');
+    expect(item.color).toEqual('lightgray');
   });
 });
