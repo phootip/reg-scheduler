@@ -1,89 +1,114 @@
 <template>
-  <div class="sidebar" id="scheduleManagerSideBar">
-    <div class="hero has-text-centered is-success">
-      <h1 class="is-uppercase is-size-7">
-        All Classes
-      </h1>
-    </div>
-    <div class="hero">
-      <div class="hero has-text-centered">
-        <a @click="isAddCourseModalActive = true" class="button is-small is-success">
-          Add another Course
-        </a>
+  <aside id="sidebar">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <h1 class="">
+            All Courses
+          </h1>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <a @click="isAddCourseModalActive = true" class="button is-primary is-small">
+            Add Course
+          </a>
+        </div>
       </div>
     </div>
-    <div class="hero">
-      <div class="hero-body">
-        <ul id="scheduleManagerCourseList">
-          <li v-for="(course, code) in courses" :key="course.name">
-            <CourseListItem
-              :course="course"
-              :selectedSectionNumber="course.selectedSection"
-              :courseCode="code"
-              @changeSection="showChangeSectionModal(code)"
-            />
-            <br/>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <ul>
+      <li v-for="(course, index) in courses" :key="course.name">
+        <CourseListItem
+          :course="course"
+          :selectedSectionNumber="1"
+          :index="index"
+          @changeSection="showChangeSectionModal"
+        />
+      </li>
+    </ul>
     <b-modal :active.sync="isAddCourseModalActive" has-modal-card>
       <AddCourseModal/>
     </b-modal>
     <b-modal :active.sync="isChangeSectionModalActive" has-modal-card>
-      <ChangeSectionModal
-        :courseIndex="changeSectionCourse"
-      />
+      <ChangeSectionModal/>
     </b-modal>
-    <br/>
-  </div>
+  </aside>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import ScheduleManagerCourseListItem from './course-list-item';
-import ScheduleManagerAddCourseModal from './add-course-modal';
+import HeadingBar from '@/components/heading-bar';
+import CourseListItem from './course-list-item';
+import AddCourseModal from './add-course-modal';
 import ChangeSectionModal from './change-section-modal';
 
 export default {
-  name: 'ScheduleManagerSideBar',
+  name: 'Sidebar',
   components: {
-    CourseListItem: ScheduleManagerCourseListItem,
-    AddCourseModal: ScheduleManagerAddCourseModal,
+    HeadingBar,
+    CourseListItem,
+    AddCourseModal,
     ChangeSectionModal,
   },
   methods: {
-    showChangeSectionModal(code) {
-      this.changeSectionCourse = code;
+    showChangeSectionModal() {
       this.isChangeSectionModalActive = true;
     },
-  },
-  computed: {
-    ...mapState([
-      'courses',
-    ]),
   },
   data() {
     return {
       isAddCourseModalActive: false,
       isChangeSectionModalActive: false,
-      changeSectionCourse: null,
+      courses: [
+        {
+          name: 'Prog Lang',
+          code: '2110316',
+          sections: [
+            {
+              number: 1,
+              teacher: 'ASD',
+              timeRanges: [
+                { day: 'mon', start: '18:00', end: '19:00' },
+              ],
+            },
+            {
+              number: 2,
+              teacher: 'DAM',
+              timeRanges: [
+                { day: 'mon', start: '18:00', end: '19:00' },
+                { day: 'tue', start: '18:00', end: '19:00' },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'Comp Eng Ess',
+          code: '2110221',
+          sections: [
+            {
+              number: 1,
+              teacher: 'AST',
+              timeRanges: [
+                { day: 'mon', start: '18:00', end: '19:00' },
+                { day: 'tue', start: '18:00', end: '19:00' },
+              ],
+            },
+            {
+              number: 2,
+              teacher: 'DAM',
+              timeRanges: [
+                { day: 'mon', start: '18:00', end: '19:00' },
+              ],
+            },
+          ],
+        },
+      ],
     };
   },
 };
 </script>
 
 <style scoped>
-@media screen and (min-width: 1024px) {
-  .sidebar {
-    height: 100%;
-    width: 100%;
+  #sidebar {
+    padding: 1.5rem;
   }
-}
-
-@media screen and (max-width: 1024px){
-  .sidebar {
-    position: relative;
-  }
-}
 </style>

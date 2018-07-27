@@ -12,8 +12,8 @@
         </span>
       </div>
     </div>
-    <div class="schedule-column schedule-item-container grow border-horizontal">
-      <div class="schedule-cell">
+    <div class="schedule-column grow border-horizontal">
+      <div class="schedule-cell schedule-item-container">
         <ScheduleTableItem
           v-for="crossHeader in crossHeaders"
           :key="crossHeader.id"
@@ -22,12 +22,14 @@
           :flipped="flipped"
           header
         >
-          {{ crossHeader.name }}
+          <span class="cross-content">
+            {{ crossHeader.name }}
+          </span>
         </ScheduleTableItem>
       </div>
       <div
         v-for="(mainHeader, index) in mainHeaders"
-        class="schedule-cell"
+        class="schedule-cell schedule-item-container"
         :class="{'alt-background': index%2 === 0}"
         :key="mainHeader.key"
       >
@@ -51,7 +53,7 @@
 <script>
 import ScheduleHeader from '@/model/schedule-header';
 import ScheduleItem from '@/model/schedule-item';
-import TimeRange from '@/model/timerange';
+import TimeRange from '@/model/time-range';
 import ScheduleTableItem from './schedule-table-item';
 
 export default {
@@ -114,7 +116,8 @@ export default {
 }
 .schedule-flipped.schedule-container {
   width: unset;
-  height: 100%;
+  min-height: 480px;
+  height: calc(100vh - 4rem);
 }
 .schedule-row {
   display: flex;
@@ -174,6 +177,13 @@ export default {
 }
 .content {
   margin: 0.5rem;
+}
+.cross-content {
+  display: inline-block;
+  transform: rotate(-90deg) translate(-1rem, -0.5rem);
+}
+.schedule-flipped .cross-content {
+  transform: unset;
 }
 .alt-background {
   background-color: whitesmoke;

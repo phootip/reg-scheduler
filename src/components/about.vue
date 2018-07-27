@@ -1,5 +1,10 @@
 <template>
-  <div class="container">
-    <div class="hero is-fullheight has-text-centered">About Us</div>
-  </div>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        About Us
+      </h1>
+      <p>Hi.</p>
+    </div>
+  </section>
 </template>

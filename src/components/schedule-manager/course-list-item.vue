@@ -1,19 +1,23 @@
 <template>
   <div class="card">
-    <div class="card-content">
-      <div class="media-content">
-        <span class="subtitle is-size-6">
-          {{ course.code || ''}}
+    <a
+      @click="isCollapsed = !isCollapsed"
+      :class="{'card-header': true, 'has-background-light': !isCollapsed}"
+    >
+      <p class="card-header-title">
+        <span class="has-text-weight-normal has-trailing-space">
+          {{ course.code || '' }}
         </span>
-        <span class="title is-size-4-desktop is-size-6-touch is-uppercase">
-          {{ course.name || 'No Name'}}
+        <span class="is-uppercase">
+          {{ course.name || '' }}
         </span>
-      </div>
-      <br/>
-      <table class="table is-narrow is-marginless is-hidden-touch">
+      </p>
+    </a>
+    <div class="card-content" v-show="!isCollapsed">
+      <table class="table is-narrow is-marginless is-fullwidth is-hidden-touch">
         <thead>
           <th>#</th>
-          <th>Teacher</th>
+          <th class="has-text-centered">Teacher</th>
           <th class="has-text-centered">Time</th>
         </thead>
         <tbody>
@@ -21,14 +25,13 @@
             <td>{{ selectedSection.number || ''}}</td>
             <td class="has-text-centered">{{ selectedSection.teacher }}</td>
             <td v-if="selectedSectionNumber">
-              <table class="table is-narrow" style="margin: 0;">
-                <tbody style="margin: 0;">
-                  <tr v-for="(timeRange, index) in selectedSection.timeRanges" :key="index"
-                  style="margin-top: 0;">
-                    <td class="is-uppercase" style="padding-top: 0;">{{timeRange.day}}</td>
-                    <td style="padding-top: 0;">{{timeRange.start}}</td>
+              <table class="table is-narrow">
+                <tbody>
+                  <tr v-for="(timeRange, index) in selectedSection.timeRanges" :key="index">
+                    <td class="is-uppercase">{{timeRange.day}}</td>
+                    <td>{{timeRange.start}}</td>
                     -
-                    <td style="padding-top: 0;">{{timeRange.end}}</td>
+                    <td>{{timeRange.end}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -37,7 +40,7 @@
         </tbody>
       </table>
     </div>
-    <div class="card-footer">
+    <div class="card-footer" v-show="!isCollapsed">
       <a
         href="#"
         class="card-footer-item"
@@ -53,7 +56,7 @@
 
 <script>
 export default {
-  name: 'ScheduleManagerCourseListItem',
+  name: 'CourseListItem',
   props: {
     course: {
       type: Object,
@@ -82,5 +85,24 @@ export default {
       return this.course.sections[this.selectedSectionNumber];
     },
   },
+  data() {
+    return {
+      // TODO: can persist collapse state
+      isCollapsed: true,
+    };
+  },
 };
 </script>
+
+<style scoped>
+.has-trailing-space::after {
+  content: " ";
+  white-space: pre;
+}
+a.card-header:hover {
+  background-color: whitesmoke;
+}
+.card-content {
+  padding: 0.5rem;
+}
+</style>

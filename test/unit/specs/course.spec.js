@@ -1,6 +1,6 @@
-import Course from '../../../src/model/Course';
-import Section from '../../../src/model/Section';
-import TimeRange from '../../../src/model/TimeRange';
+import Course from '@/model/course';
+import Section from '@/model/section';
+import TimeRange from '@/model/time-range';
 
 describe('Course', () => {
   let course;

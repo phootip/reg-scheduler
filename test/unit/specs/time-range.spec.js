@@ -1,4 +1,4 @@
-import TimeRange from '../../../src/model/TimeRange';
+import TimeRange from '@/model/time-range';
 
 describe('TimeRange', () => {
   it('has the start, end time', () => {

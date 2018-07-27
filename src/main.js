@@ -3,7 +3,7 @@
 import Vue from 'vue';
 import VueX from 'vuex';
 import Buefy from 'buefy';
-import App from './App';
+import App from './app';
 import router from './router';
 import createStore from './store';
 

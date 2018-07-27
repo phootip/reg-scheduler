@@ -1,4 +1,4 @@
-import ScheduleHeader from '../../../src/model/ScheduleHeader';
+import ScheduleHeader from '@/model/schedule-header';
 
 describe('ScheduleHeader', () => {
   it('has name and key', () => {

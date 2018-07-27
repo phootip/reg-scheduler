@@ -1,5 +1,5 @@
-import Section from '../../../src/model/Section';
-import TimeRange from '../../../src/model/TimeRange';
+import Section from '@/model/section';
+import TimeRange from '@/model/time-range';
 
 describe('Section', () => {
   let section;

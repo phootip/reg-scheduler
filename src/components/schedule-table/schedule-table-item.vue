@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TimeRange from '@/model/timerange';
+import TimeRange from '@/model/time-range';
 
 export default {
   name: 'ScheduleTableItem',
@@ -37,12 +37,18 @@ export default {
       if (this.flipped) {
         return {
           top: this.start,
+          left: '50%',
+          width: '100%',
           height: this.size,
+          transform: 'perspective(1px) translateX(-50%)',
         };
       }
       return {
+        top: '50%',
         left: this.start,
         width: this.size,
+        height: '100%',
+        transform: 'perspective(1px) translateY(-50%)',
       };
     },
   },
@@ -52,6 +58,9 @@ export default {
 <style scoped>
 .schedule-item {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .schedule-item-header {
   text-align: left;
@@ -59,5 +68,6 @@ export default {
   top: 0;
   left: 0;
   height: 100%;
+  display: unset;
 }
 </style>

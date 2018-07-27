@@ -1,14 +1,7 @@
 <template>
-  <section class="hero is-fullheight is-overlay">
-    <div class="hero-head" v-show="$slots.head">
-      <slot name="head"></slot>
-    </div>
-    <div class="hero-body is-paddingless">
-      <slot></slot>
-    </div>
-    <div class="hero-foot" v-show="$slots.foot">
-      <slot name="foot"></slot>
-    </div>
+  <section :class="{ hasHeadPadding: $slots.head }">
+    <slot name="head"></slot>
+    <slot></slot>
   </section>
 </template>
 
@@ -17,3 +10,9 @@ export default {
   name: 'Layout',
 };
 </script>
+
+<style scoped>
+.hasHeadPadding {
+  padding-top: 3.25rem;
+}
+</style>

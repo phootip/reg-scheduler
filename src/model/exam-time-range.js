@@ -1,4 +1,4 @@
-import TimeRange from './timerange';
+import TimeRange from './time-range';
 
 export default class ExamTimeRange extends TimeRange {
   constructor(day, start, end, date) {

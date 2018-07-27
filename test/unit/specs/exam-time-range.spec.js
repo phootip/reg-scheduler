@@ -1,4 +1,4 @@
-import ExamTimeRange from '../../../src/model/ExamTimeRange';
+import ExamTimeRange from '@/model/exam-time-range';
 
 describe('ExamTimeRange', () => {
   it('has the start, end time', () => {

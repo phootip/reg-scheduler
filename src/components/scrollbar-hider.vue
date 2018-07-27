@@ -6,6 +6,7 @@
       :style="{ marginRight: -scrollbarWidth + 'px' }"
     >
       <slot></slot>
+      <div class="fade-overlay"></div>
     </div>
   </div>
 </template>
@@ -48,5 +49,18 @@ export default {
   .scrollbar-hidden::-webkit-scrollbar {
     width: 0;
     background: transparent;
+  }
+  .fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      white 100%
+    );
+    pointer-events: none;
   }
 </style>

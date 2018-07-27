@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar is-fixed-top">
     <div class="container">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item is-size-4">
